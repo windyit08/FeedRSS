@@ -14,11 +14,11 @@
 		<string>https://github.com/windyit08/FeedRSS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>FeedRSS/FeedRSS.xcworkspace</string>
+	<string>FeedRSS.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>D5A5554BA85642D150BA603EB581861D0378F4EC</key>
-		<string>../..</string>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/windyit08/FeedRSS.git</string>
