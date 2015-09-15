@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Training. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "FRBaseViewController.h"
 
-@interface ViewController ()
+@interface FRBaseViewController ()
 
 @end
 
-@implementation ViewController
+@implementation FRBaseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

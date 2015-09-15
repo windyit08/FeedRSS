@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Training. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "FRAppDelegate.h"
 
-@interface AppDelegate ()
+@interface FRAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation FRAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
