@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4312F3F91BA82497006A350F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4312F3FB1BA82497006A350F /* Localizable.strings */; };
+		4312F4061BA82AB3006A350F /* FRCommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312F4051BA82AB3006A350F /* FRCommonUtils.m */; };
+		4312F4111BA82C2D006A350F /* FRNSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312F4101BA82C2D006A350F /* FRNSString+Hash.m */; };
 		43EE860F1BA7CF6800C6D395 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EE860E1BA7CF6800C6D395 /* main.m */; };
-		43EE86121BA7CF6800C6D395 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EE86111BA7CF6800C6D395 /* AppDelegate.m */; };
+		43EE86121BA7CF6800C6D395 /* FRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EE86111BA7CF6800C6D395 /* FRAppDelegate.m */; };
 		43EE86151BA7CF6800C6D395 /* FeedRSS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43EE86131BA7CF6800C6D395 /* FeedRSS.xcdatamodeld */; };
-		43EE86181BA7CF6800C6D395 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EE86171BA7CF6800C6D395 /* ViewController.m */; };
+		43EE86181BA7CF6800C6D395 /* FRBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EE86171BA7CF6800C6D395 /* FRBaseViewController.m */; };
 		43EE861B1BA7CF6800C6D395 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43EE86191BA7CF6800C6D395 /* Main.storyboard */; };
 		43EE861D1BA7CF6800C6D395 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43EE861C1BA7CF6800C6D395 /* Images.xcassets */; };
 		43EE86201BA7CF6800C6D395 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43EE861E1BA7CF6800C6D395 /* LaunchScreen.xib */; };
@@ -29,14 +32,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4312F3FA1BA82497006A350F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4312F3FC1BA824A8006A350F /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4312F4041BA82AB3006A350F /* FRCommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRCommonUtils.h; sourceTree = "<group>"; };
+		4312F4051BA82AB3006A350F /* FRCommonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRCommonUtils.m; sourceTree = "<group>"; };
+		4312F4091BA82B47006A350F /* FRCommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRCommonDefine.h; sourceTree = "<group>"; };
+		4312F40F1BA82C2D006A350F /* FRNSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FRNSString+Hash.h"; sourceTree = "<group>"; };
+		4312F4101BA82C2D006A350F /* FRNSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FRNSString+Hash.m"; sourceTree = "<group>"; };
+		4312F4131BA82E23006A350F /* FeedRSSPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedRSSPrefixHeader.pch; sourceTree = "<group>"; };
 		43EE86091BA7CF6800C6D395 /* FeedRSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedRSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43EE860D1BA7CF6800C6D395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43EE860E1BA7CF6800C6D395 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		43EE86101BA7CF6800C6D395 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		43EE86111BA7CF6800C6D395 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		43EE86101BA7CF6800C6D395 /* FRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRAppDelegate.h; sourceTree = "<group>"; };
+		43EE86111BA7CF6800C6D395 /* FRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRAppDelegate.m; sourceTree = "<group>"; };
 		43EE86141BA7CF6800C6D395 /* FeedRSS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FeedRSS.xcdatamodel; sourceTree = "<group>"; };
-		43EE86161BA7CF6800C6D395 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		43EE86171BA7CF6800C6D395 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		43EE86161BA7CF6800C6D395 /* FRBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FRBaseViewController.h; path = ../FRBaseViewController.h; sourceTree = "<group>"; };
+		43EE86171BA7CF6800C6D395 /* FRBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FRBaseViewController.m; path = ../FRBaseViewController.m; sourceTree = "<group>"; };
 		43EE861A1BA7CF6800C6D395 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43EE861C1BA7CF6800C6D395 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		43EE861F1BA7CF6800C6D395 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -67,6 +78,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4312F3FD1BA82546006A350F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4312F3FE1BA82546006A350F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4312F4041BA82AB3006A350F /* FRCommonUtils.h */,
+				4312F4051BA82AB3006A350F /* FRCommonUtils.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		4312F3FF1BA82546006A350F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				43EE86161BA7CF6800C6D395 /* FRBaseViewController.h */,
+				43EE86171BA7CF6800C6D395 /* FRBaseViewController.m */,
+				4312F4021BA829CE006A350F /* Views */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4312F4021BA829CE006A350F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4312F4121BA82C77006A350F /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4312F4031BA82A0D006A350F /* BusinessControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BusinessControllers;
+			sourceTree = "<group>";
+		};
+		4312F4071BA82B2C006A350F /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				4312F4091BA82B47006A350F /* FRCommonDefine.h */,
+				4312F4081BA82B2C006A350F /* Categories */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		4312F4081BA82B2C006A350F /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4312F40F1BA82C2D006A350F /* FRNSString+Hash.h */,
+				4312F4101BA82C2D006A350F /* FRNSString+Hash.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		4312F4121BA82C77006A350F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		43EE86001BA7CF6800C6D395 = {
 			isa = PBXGroup;
 			children = (
@@ -90,15 +167,19 @@
 		43EE860B1BA7CF6800C6D395 /* FeedRSS */ = {
 			isa = PBXGroup;
 			children = (
-				43EE86101BA7CF6800C6D395 /* AppDelegate.h */,
-				43EE86111BA7CF6800C6D395 /* AppDelegate.m */,
-				43EE86161BA7CF6800C6D395 /* ViewController.h */,
-				43EE86171BA7CF6800C6D395 /* ViewController.m */,
+				4312F3FD1BA82546006A350F /* Models */,
+				4312F3FF1BA82546006A350F /* ViewControllers */,
+				4312F4031BA82A0D006A350F /* BusinessControllers */,
+				4312F3FE1BA82546006A350F /* Utils */,
+				4312F4071BA82B2C006A350F /* Others */,
+				43EE86101BA7CF6800C6D395 /* FRAppDelegate.h */,
+				43EE86111BA7CF6800C6D395 /* FRAppDelegate.m */,
 				43EE86191BA7CF6800C6D395 /* Main.storyboard */,
 				43EE861C1BA7CF6800C6D395 /* Images.xcassets */,
 				43EE861E1BA7CF6800C6D395 /* LaunchScreen.xib */,
 				43EE86131BA7CF6800C6D395 /* FeedRSS.xcdatamodeld */,
 				43EE860C1BA7CF6800C6D395 /* Supporting Files */,
+				4312F4131BA82E23006A350F /* FeedRSSPrefixHeader.pch */,
 			);
 			path = FeedRSS;
 			sourceTree = "<group>";
@@ -106,6 +187,7 @@
 		43EE860C1BA7CF6800C6D395 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4312F3FB1BA82497006A350F /* Localizable.strings */,
 				43EE860D1BA7CF6800C6D395 /* Info.plist */,
 				43EE860E1BA7CF6800C6D395 /* main.m */,
 			);
@@ -211,6 +293,7 @@
 			knownRegions = (
 				en,
 				Base,
+				vi,
 			);
 			mainGroup = 43EE86001BA7CF6800C6D395;
 			productRefGroup = 43EE860A1BA7CF6800C6D395 /* Products */;
@@ -229,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43EE861B1BA7CF6800C6D395 /* Main.storyboard in Resources */,
+				4312F3F91BA82497006A350F /* Localizable.strings in Resources */,
 				43EE86201BA7CF6800C6D395 /* LaunchScreen.xib in Resources */,
 				43EE861D1BA7CF6800C6D395 /* Images.xcassets in Resources */,
 			);
@@ -281,9 +365,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43EE86121BA7CF6800C6D395 /* AppDelegate.m in Sources */,
+				43EE86121BA7CF6800C6D395 /* FRAppDelegate.m in Sources */,
+				4312F4111BA82C2D006A350F /* FRNSString+Hash.m in Sources */,
+				4312F4061BA82AB3006A350F /* FRCommonUtils.m in Sources */,
 				43EE86151BA7CF6800C6D395 /* FeedRSS.xcdatamodeld in Sources */,
-				43EE86181BA7CF6800C6D395 /* ViewController.m in Sources */,
+				43EE86181BA7CF6800C6D395 /* FRBaseViewController.m in Sources */,
 				43EE860F1BA7CF6800C6D395 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +393,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4312F3FB1BA82497006A350F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4312F3FA1BA82497006A350F /* Base */,
+				4312F3FC1BA824A8006A350F /* vi */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		43EE86191BA7CF6800C6D395 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -362,7 +457,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -400,7 +495,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -413,6 +508,8 @@
 			baseConfigurationReference = 96D187C4B5E05698EF014FFE /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FeedRSS/FeedRSSPrefixHeader.pch";
 				INFOPLIST_FILE = FeedRSS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -425,6 +522,8 @@
 			baseConfigurationReference = 8E4BEDE5EFD468B5122BCDCD /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FeedRSS/FeedRSSPrefixHeader.pch";
 				INFOPLIST_FILE = FeedRSS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
