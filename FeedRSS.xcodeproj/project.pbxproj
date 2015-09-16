@@ -11,6 +11,8 @@
 		4312F4061BA82AB3006A350F /* FRCommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312F4051BA82AB3006A350F /* FRCommonUtils.m */; };
 		4312F4111BA82C2D006A350F /* FRNSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312F4101BA82C2D006A350F /* FRNSString+Hash.m */; };
 		432059F61BA94E8B000E3B85 /* FRBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 432059F51BA94E8B000E3B85 /* FRBaseViewController.m */; };
+		432059F91BA955FD000E3B85 /* FRBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 432059F81BA955FD000E3B85 /* FRBaseView.m */; };
+		432059FC1BA9562A000E3B85 /* FRBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 432059FB1BA9562A000E3B85 /* FRBaseCell.m */; };
 		43EE860F1BA7CF6800C6D395 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EE860E1BA7CF6800C6D395 /* main.m */; };
 		43EE86121BA7CF6800C6D395 /* FRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EE86111BA7CF6800C6D395 /* FRAppDelegate.m */; };
 		43EE86151BA7CF6800C6D395 /* FeedRSS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43EE86131BA7CF6800C6D395 /* FeedRSS.xcdatamodeld */; };
@@ -42,6 +44,10 @@
 		4312F4131BA82E23006A350F /* FeedRSSPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedRSSPrefixHeader.pch; sourceTree = "<group>"; };
 		432059F41BA94E8B000E3B85 /* FRBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRBaseViewController.h; sourceTree = "<group>"; };
 		432059F51BA94E8B000E3B85 /* FRBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRBaseViewController.m; sourceTree = "<group>"; };
+		432059F71BA955FD000E3B85 /* FRBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRBaseView.h; sourceTree = "<group>"; };
+		432059F81BA955FD000E3B85 /* FRBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRBaseView.m; sourceTree = "<group>"; };
+		432059FA1BA9562A000E3B85 /* FRBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRBaseCell.h; sourceTree = "<group>"; };
+		432059FB1BA9562A000E3B85 /* FRBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRBaseCell.m; sourceTree = "<group>"; };
 		43EE86091BA7CF6800C6D395 /* FeedRSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedRSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43EE860D1BA7CF6800C6D395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43EE860E1BA7CF6800C6D395 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -108,6 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				4312F4121BA82C77006A350F /* Cells */,
+				432059F71BA955FD000E3B85 /* FRBaseView.h */,
+				432059F81BA955FD000E3B85 /* FRBaseView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -140,6 +148,8 @@
 		4312F4121BA82C77006A350F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				432059FA1BA9562A000E3B85 /* FRBaseCell.h */,
+				432059FB1BA9562A000E3B85 /* FRBaseCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -366,6 +376,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				43EE86121BA7CF6800C6D395 /* FRAppDelegate.m in Sources */,
+				432059F91BA955FD000E3B85 /* FRBaseView.m in Sources */,
+				432059FC1BA9562A000E3B85 /* FRBaseCell.m in Sources */,
 				432059F61BA94E8B000E3B85 /* FRBaseViewController.m in Sources */,
 				4312F4111BA82C2D006A350F /* FRNSString+Hash.m in Sources */,
 				4312F4061BA82AB3006A350F /* FRCommonUtils.m in Sources */,
