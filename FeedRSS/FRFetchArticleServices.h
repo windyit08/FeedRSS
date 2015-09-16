@@ -1,13 +1,13 @@
 //
-//  FetchArticleServices.m
+//  FetchArticleServices.h
 //  FeedRSS
 //
 //  Created by ThanhDM on 9/16/15.
 //  Copyright (c) 2015 Training. All rights reserved.
 //
 
-#import "FetchArticleServices.h"
+#import <Foundation/Foundation.h>
 
-@implementation FetchArticleServices
+@interface FRFetchArticleServices : NSObject
 
 @end
