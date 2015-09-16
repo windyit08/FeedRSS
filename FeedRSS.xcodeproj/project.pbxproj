@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002DF65B1BA9750200D71DAD /* FetchArticleServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF65A1BA9750200D71DAD /* FetchArticleServices.m */; };
 		4312F3F91BA82497006A350F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4312F3FB1BA82497006A350F /* Localizable.strings */; };
 		4312F4061BA82AB3006A350F /* FRCommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312F4051BA82AB3006A350F /* FRCommonUtils.m */; };
 		4312F4111BA82C2D006A350F /* FRNSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312F4101BA82C2D006A350F /* FRNSString+Hash.m */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		002DF6591BA9750200D71DAD /* FetchArticleServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchArticleServices.h; sourceTree = "<group>"; };
+		002DF65A1BA9750200D71DAD /* FetchArticleServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchArticleServices.m; sourceTree = "<group>"; };
 		4312F3FA1BA82497006A350F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4312F3FC1BA824A8006A350F /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4312F4041BA82AB3006A350F /* FRCommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRCommonUtils.h; sourceTree = "<group>"; };
@@ -94,6 +97,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		002DF6551BA9749A00D71DAD /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		002DF6581BA974C000D71DAD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				002DF6591BA9750200D71DAD /* FetchArticleServices.h */,
+				002DF65A1BA9750200D71DAD /* FetchArticleServices.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		4312F3FD1BA82546006A350F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +211,8 @@
 		43EE860B1BA7CF6800C6D395 /* FeedRSS */ = {
 			isa = PBXGroup;
 			children = (
+				002DF6581BA974C000D71DAD /* Common */,
+				002DF6551BA9749A00D71DAD /* Libraries */,
 				4312F3FD1BA82546006A350F /* Models */,
 				4312F3FF1BA82546006A350F /* ViewControllers */,
 				4312F4031BA82A0D006A350F /* BusinessControllers */,
@@ -399,6 +420,7 @@
 				432059FC1BA9562A000E3B85 /* FRBaseCell.m in Sources */,
 				B23DF5FF1BA961DB007C67C0 /* FRFavoriteViewController.m in Sources */,
 				432059F61BA94E8B000E3B85 /* FRBaseViewController.m in Sources */,
+				002DF65B1BA9750200D71DAD /* FetchArticleServices.m in Sources */,
 				4312F4111BA82C2D006A350F /* FRNSString+Hash.m in Sources */,
 				4312F4061BA82AB3006A350F /* FRCommonUtils.m in Sources */,
 				43EE86151BA7CF6800C6D395 /* FeedRSS.xcdatamodeld in Sources */,
