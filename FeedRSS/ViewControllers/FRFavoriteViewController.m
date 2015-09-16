@@ -8,6 +8,7 @@
 
 #import "FRFavoriteViewController.h"
 #import "SimpleTableCell.h"
+#import "FRDetailViewController.h"
 
 @interface FRFavoriteViewController ()
 
@@ -18,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+       [self.table registerNib:[UINib nibWithNibName:NSStringFromClass([SimpleTableCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([SimpleTableCell class])];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,11 +83,7 @@
     UIAlertView *messageAlert = [[UIAlertView alloc]
                                  initWithTitle:@"Row Selected" message:@"You've selected a row" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     
-    // Display Alert Message
-    
-    [messageAlert show];
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+       [self performSegueWithIdentifier:@"ViewFavoriteAction" sender:self];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -99,4 +97,23 @@
     
     return 78;
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    NSLog(@"prepareForSegue");
+    
+    if ([segue.identifier isEqualToString:@"ViewFavoriteAction"]) {
+        
+        NSIndexPath *indexPath = [self.table indexPathForSelectedRow];
+        
+        FRDetailViewController *destViewController = segue.destinationViewController;
+        
+        destViewController.Url = @"http://www.dantri.com.vn";
+        
+    }
+    
+    
+    
+}
+
 @end
