@@ -21,6 +21,10 @@
 		43EE86201BA7CF6800C6D395 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43EE861E1BA7CF6800C6D395 /* LaunchScreen.xib */; };
 		43EE862C1BA7CF6800C6D395 /* FeedRSSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EE862B1BA7CF6800C6D395 /* FeedRSSTests.m */; };
 		7BF7CDA4CDC30AD69664F8F2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7028C0195D4B7B810497185F /* libPods.a */; };
+		B23DF5FB1BA95F88007C67C0 /* SimpleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B23DF5F91BA95F88007C67C0 /* SimpleTableCell.m */; };
+		B23DF5FC1BA95F88007C67C0 /* SimpleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B23DF5FA1BA95F88007C67C0 /* SimpleTableCell.xib */; };
+		B23DF5FF1BA961DB007C67C0 /* FRFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23DF5FE1BA961DB007C67C0 /* FRFavoriteViewController.m */; };
+		B23DF6011BA96495007C67C0 /* husky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B23DF6001BA96495007C67C0 /* husky.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,12 @@
 		7028C0195D4B7B810497185F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E4BEDE5EFD468B5122BCDCD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		96D187C4B5E05698EF014FFE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B23DF5F81BA95F88007C67C0 /* SimpleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleTableCell.h; sourceTree = "<group>"; };
+		B23DF5F91BA95F88007C67C0 /* SimpleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleTableCell.m; sourceTree = "<group>"; };
+		B23DF5FA1BA95F88007C67C0 /* SimpleTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleTableCell.xib; sourceTree = "<group>"; };
+		B23DF5FD1BA961DB007C67C0 /* FRFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFavoriteViewController.h; sourceTree = "<group>"; };
+		B23DF5FE1BA961DB007C67C0 /* FRFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFavoriteViewController.m; sourceTree = "<group>"; };
+		B23DF6001BA96495007C67C0 /* husky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = husky.jpg; path = Images.xcassets/husky.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +116,8 @@
 				432059F41BA94E8B000E3B85 /* FRBaseViewController.h */,
 				432059F51BA94E8B000E3B85 /* FRBaseViewController.m */,
 				4312F4021BA829CE006A350F /* Views */,
+				B23DF5FD1BA961DB007C67C0 /* FRFavoriteViewController.h */,
+				B23DF5FE1BA961DB007C67C0 /* FRFavoriteViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -148,6 +160,9 @@
 		4312F4121BA82C77006A350F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				B23DF5F81BA95F88007C67C0 /* SimpleTableCell.h */,
+				B23DF5F91BA95F88007C67C0 /* SimpleTableCell.m */,
+				B23DF5FA1BA95F88007C67C0 /* SimpleTableCell.xib */,
 				432059FA1BA9562A000E3B85 /* FRBaseCell.h */,
 				432059FB1BA9562A000E3B85 /* FRBaseCell.m */,
 			);
@@ -186,6 +201,7 @@
 				43EE86111BA7CF6800C6D395 /* FRAppDelegate.m */,
 				43EE86191BA7CF6800C6D395 /* Main.storyboard */,
 				43EE861C1BA7CF6800C6D395 /* Images.xcassets */,
+				B23DF6001BA96495007C67C0 /* husky.jpg */,
 				43EE861E1BA7CF6800C6D395 /* LaunchScreen.xib */,
 				43EE86131BA7CF6800C6D395 /* FeedRSS.xcdatamodeld */,
 				43EE860C1BA7CF6800C6D395 /* Supporting Files */,
@@ -322,8 +338,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				43EE861B1BA7CF6800C6D395 /* Main.storyboard in Resources */,
+				B23DF5FC1BA95F88007C67C0 /* SimpleTableCell.xib in Resources */,
 				4312F3F91BA82497006A350F /* Localizable.strings in Resources */,
 				43EE86201BA7CF6800C6D395 /* LaunchScreen.xib in Resources */,
+				B23DF6011BA96495007C67C0 /* husky.jpg in Resources */,
 				43EE861D1BA7CF6800C6D395 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,7 +395,9 @@
 			files = (
 				43EE86121BA7CF6800C6D395 /* FRAppDelegate.m in Sources */,
 				432059F91BA955FD000E3B85 /* FRBaseView.m in Sources */,
+				B23DF5FB1BA95F88007C67C0 /* SimpleTableCell.m in Sources */,
 				432059FC1BA9562A000E3B85 /* FRBaseCell.m in Sources */,
+				B23DF5FF1BA961DB007C67C0 /* FRFavoriteViewController.m in Sources */,
 				432059F61BA94E8B000E3B85 /* FRBaseViewController.m in Sources */,
 				4312F4111BA82C2D006A350F /* FRNSString+Hash.m in Sources */,
 				4312F4061BA82AB3006A350F /* FRCommonUtils.m in Sources */,

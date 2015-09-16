@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FRFavoriteViewController : UIViewController
+@interface FRFavoriteViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *table;
 
 @end

@@ -7,13 +7,14 @@
 //
 
 #import "FRFavoriteViewController.h"
+#import "SimpleTableCell.h"
 
 @interface FRFavoriteViewController ()
 
 @end
 
 @implementation FRFavoriteViewController
-
+@synthesize table;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -34,4 +35,68 @@
 }
 */
 
+
+/**LIST VIEW*/
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+
+    return 100;
+    
+}
+
+// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSLog(@"cellForRowAtIndexPath(index): %ld",indexPath.row);
+    
+    
+   {
+        SimpleTableCell * cell = nil;
+        
+        static NSString *simpleTableIndentifier = @"SimpleTableCell";
+        NSLog(@"cellForRowAtIndexPath(index): %ld 1",indexPath.row);
+        cell = (SimpleTableCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIndentifier];
+        NSLog(@"cellForRowAtIndexPath(index): %ld 2",indexPath.row);
+        if(cell == nil){
+            NSLog(@"cellForRowAtIndexPath(index): %ld 3",indexPath.row);
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SimpleTableCell" owner:self options:nil];
+            NSLog(@"cellForRowAtIndexPath(index): %ld 4",indexPath.row);
+            cell = [nib objectAtIndex:0];
+            NSLog(@"cellForRowAtIndexPath(index): %ld 5",indexPath.row);
+        }
+        
+        cell.nameLabel.text = @" Favorite";
+        cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
+        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
+        
+        return cell;
+        
+    }
+    
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UIAlertView *messageAlert = [[UIAlertView alloc]
+                                 initWithTitle:@"Row Selected" message:@"You've selected a row" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    
+    // Display Alert Message
+    
+    [messageAlert show];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    return 78;
+}
 @end
