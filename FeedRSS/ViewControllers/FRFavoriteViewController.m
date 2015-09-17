@@ -20,6 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
        [self.table registerNib:[UINib nibWithNibName:NSStringFromClass([SimpleTableCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([SimpleTableCell class])];
+    self.table 
 }
 
 - (void)didReceiveMemoryWarning {
@@ -111,9 +112,7 @@
         destViewController.Url = @"http://www.dantri.com.vn";
         
     }
-    
-    
-    
+
 }
 
 @end
