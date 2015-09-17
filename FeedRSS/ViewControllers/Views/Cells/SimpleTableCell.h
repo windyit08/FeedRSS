@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FRBaseCell.h"
 
-@interface SimpleTableCell : UITableViewCell
+@interface SimpleTableCell : FRBaseCell
 @property (nonatomic, weak) IBOutlet UIImageView *thumbnailImageView;
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 

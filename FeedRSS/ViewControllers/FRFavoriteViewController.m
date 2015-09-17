@@ -8,16 +8,38 @@
 
 #import "FRFavoriteViewController.h"
 #import "SimpleTableCell.h"
+#import "FRDetailViewController.h"
+#import "FRPost.h"
 
 @interface FRFavoriteViewController ()
 
 @end
 
 @implementation FRFavoriteViewController
+- (NSManagedObjectContext *)managedObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+@synthesize posts;
 @synthesize table;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"FRPost" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    self.posts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    self.title = @"Posts";
+       [self.table registerNib:[UINib nibWithNibName:NSStringFromClass([SimpleTableCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([SimpleTableCell class])];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,8 +61,8 @@
 /**LIST VIEW*/
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-
     return 100;
+    //return self.posts.count;
     
 }
 
@@ -66,7 +88,8 @@
             cell = [nib objectAtIndex:0];
             NSLog(@"cellForRowAtIndexPath(index): %ld 5",indexPath.row);
         }
-        
+       //FRPost *post = [posts objectAtIndex:indexPath.row];
+       //cell.nameLabel.text = post.title;
         cell.nameLabel.text = @" Favorite";
         cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
         cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
@@ -81,11 +104,7 @@
     UIAlertView *messageAlert = [[UIAlertView alloc]
                                  initWithTitle:@"Row Selected" message:@"You've selected a row" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     
-    // Display Alert Message
-    
-    [messageAlert show];
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+       [self performSegueWithIdentifier:@"ViewFavoriteAction" sender:self];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -99,4 +118,21 @@
     
     return 78;
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    NSLog(@"prepareForSegue");
+    
+    if ([segue.identifier isEqualToString:@"ViewFavoriteAction"]) {
+        
+        NSIndexPath *indexPath = [self.table indexPathForSelectedRow];
+        
+        FRDetailViewController *destViewController = segue.destinationViewController;
+        
+        destViewController.Url = @"http://www.dantri.com.vn";
+        
+    }
+
+}
+
 @end

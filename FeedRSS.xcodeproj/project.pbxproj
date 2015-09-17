@@ -28,6 +28,8 @@
 		43EE86201BA7CF6800C6D395 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43EE861E1BA7CF6800C6D395 /* LaunchScreen.xib */; };
 		43EE862C1BA7CF6800C6D395 /* FeedRSSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EE862B1BA7CF6800C6D395 /* FeedRSSTests.m */; };
 		7BF7CDA4CDC30AD69664F8F2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7028C0195D4B7B810497185F /* libPods.a */; };
+		B23357621BA987A1008B0FDE /* FRDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23357611BA987A1008B0FDE /* FRDetailViewController.m */; };
+		B23357651BAA7339008B0FDE /* FRPost.m in Sources */ = {isa = PBXBuildFile; fileRef = B23357641BAA7339008B0FDE /* FRPost.m */; };
 		B23DF5FB1BA95F88007C67C0 /* SimpleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B23DF5F91BA95F88007C67C0 /* SimpleTableCell.m */; };
 		B23DF5FC1BA95F88007C67C0 /* SimpleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B23DF5FA1BA95F88007C67C0 /* SimpleTableCell.xib */; };
 		B23DF5FF1BA961DB007C67C0 /* FRFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23DF5FE1BA961DB007C67C0 /* FRFavoriteViewController.m */; };
@@ -88,6 +90,10 @@
 		7028C0195D4B7B810497185F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E4BEDE5EFD468B5122BCDCD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		96D187C4B5E05698EF014FFE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B23357601BA987A1008B0FDE /* FRDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRDetailViewController.h; sourceTree = "<group>"; };
+		B23357611BA987A1008B0FDE /* FRDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRDetailViewController.m; sourceTree = "<group>"; };
+		B23357631BAA7339008B0FDE /* FRPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRPost.h; sourceTree = SOURCE_ROOT; };
+		B23357641BAA7339008B0FDE /* FRPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRPost.m; sourceTree = SOURCE_ROOT; };
 		B23DF5F81BA95F88007C67C0 /* SimpleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleTableCell.h; sourceTree = "<group>"; };
 		B23DF5F91BA95F88007C67C0 /* SimpleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleTableCell.m; sourceTree = "<group>"; };
 		B23DF5FA1BA95F88007C67C0 /* SimpleTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleTableCell.xib; sourceTree = "<group>"; };
@@ -136,6 +142,8 @@
 		4312F3FD1BA82546006A350F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B23357631BAA7339008B0FDE /* FRPost.h */,
+				B23357641BAA7339008B0FDE /* FRPost.m */,
 				002DF65C1BA9789F00D71DAD /* FRNewsModel.h */,
 				002DF65D1BA9789F00D71DAD /* FRNewsModel.m */,
 				002DF65F1BA9985000D71DAD /* FRNewsObject.h */,
@@ -161,6 +169,8 @@
 		4312F3FF1BA82546006A350F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B23357601BA987A1008B0FDE /* FRDetailViewController.h */,
+				B23357611BA987A1008B0FDE /* FRDetailViewController.m */,
 				432059F41BA94E8B000E3B85 /* FRBaseViewController.h */,
 				432059F51BA94E8B000E3B85 /* FRBaseViewController.m */,
 				4312F4021BA829CE006A350F /* Views */,
@@ -447,9 +457,11 @@
 				43EE86121BA7CF6800C6D395 /* FRAppDelegate.m in Sources */,
 				432059F91BA955FD000E3B85 /* FRBaseView.m in Sources */,
 				002DF65E1BA9789F00D71DAD /* FRNewsModel.m in Sources */,
+				B23357651BAA7339008B0FDE /* FRPost.m in Sources */,
 				B23DF5FB1BA95F88007C67C0 /* SimpleTableCell.m in Sources */,
 				002DF66F1BAA789A00D71DAD /* FRAPIWorker.m in Sources */,
 				432059FC1BA9562A000E3B85 /* FRBaseCell.m in Sources */,
+				B23357621BA987A1008B0FDE /* FRDetailViewController.m in Sources */,
 				B23DF5FF1BA961DB007C67C0 /* FRFavoriteViewController.m in Sources */,
 				002DF6641BA9A1FD00D71DAD /* FRWebAPIError.m in Sources */,
 				432059F61BA94E8B000E3B85 /* FRBaseViewController.m in Sources */,
