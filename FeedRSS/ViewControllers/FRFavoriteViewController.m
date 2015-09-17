@@ -9,16 +9,36 @@
 #import "FRFavoriteViewController.h"
 #import "SimpleTableCell.h"
 #import "FRDetailViewController.h"
+#import "FRPost.h"
 
 @interface FRFavoriteViewController ()
 
 @end
 
 @implementation FRFavoriteViewController
+- (NSManagedObjectContext *)managedObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+@synthesize posts;
 @synthesize table;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"FRPost" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    self.posts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    self.title = @"Posts";
        [self.table registerNib:[UINib nibWithNibName:NSStringFromClass([SimpleTableCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([SimpleTableCell class])];
     self.table 
 }
@@ -43,7 +63,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-    return 100;
+    return self.posts.count;
     
 }
 
@@ -69,10 +89,11 @@
             cell = [nib objectAtIndex:0];
             NSLog(@"cellForRowAtIndexPath(index): %ld 5",indexPath.row);
         }
-        
-        cell.nameLabel.text = @" Favorite";
-        cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
-        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
+       FRPost *post = [posts objectAtIndex:indexPath.row];
+       cell.nameLabel.text = post.title;
+        //cell.nameLabel.text = @" Favorite";
+        //cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
+        //cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
         
         return cell;
         
