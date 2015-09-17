@@ -40,7 +40,6 @@
     self.posts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     self.title = @"Posts";
        [self.table registerNib:[UINib nibWithNibName:NSStringFromClass([SimpleTableCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([SimpleTableCell class])];
-    self.table 
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,8 +61,8 @@
 /**LIST VIEW*/
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-
-    return self.posts.count;
+    return 100;
+    //return self.posts.count;
     
 }
 
@@ -89,11 +88,11 @@
             cell = [nib objectAtIndex:0];
             NSLog(@"cellForRowAtIndexPath(index): %ld 5",indexPath.row);
         }
-       FRPost *post = [posts objectAtIndex:indexPath.row];
-       cell.nameLabel.text = post.title;
-        //cell.nameLabel.text = @" Favorite";
-        //cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
-        //cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
+       //FRPost *post = [posts objectAtIndex:indexPath.row];
+       //cell.nameLabel.text = post.title;
+        cell.nameLabel.text = @" Favorite";
+        cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
+        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
         
         return cell;
         
