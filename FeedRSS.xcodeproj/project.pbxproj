@@ -28,6 +28,7 @@
 		B23DF5FC1BA95F88007C67C0 /* SimpleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B23DF5FA1BA95F88007C67C0 /* SimpleTableCell.xib */; };
 		B23DF5FF1BA961DB007C67C0 /* FRFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23DF5FE1BA961DB007C67C0 /* FRFavoriteViewController.m */; };
 		B23DF6011BA96495007C67C0 /* husky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B23DF6001BA96495007C67C0 /* husky.jpg */; };
+		D33D2E0F1BAA6220005AB7F6 /* FRPost.m in Sources */ = {isa = PBXBuildFile; fileRef = D33D2E0E1BAA6220005AB7F6 /* FRPost.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,8 @@
 		B23DF5FD1BA961DB007C67C0 /* FRFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFavoriteViewController.h; sourceTree = "<group>"; };
 		B23DF5FE1BA961DB007C67C0 /* FRFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFavoriteViewController.m; sourceTree = "<group>"; };
 		B23DF6001BA96495007C67C0 /* husky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = husky.jpg; path = Images.xcassets/husky.jpg; sourceTree = "<group>"; };
+		D33D2E0D1BAA6220005AB7F6 /* FRPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRPost.h; path = FeedRSS/FRPost.h; sourceTree = SOURCE_ROOT; };
+		D33D2E0E1BAA6220005AB7F6 /* FRPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRPost.m; path = FeedRSS/FRPost.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 		4312F3FD1BA82546006A350F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D33D2E0D1BAA6220005AB7F6 /* FRPost.h */,
+				D33D2E0E1BAA6220005AB7F6 /* FRPost.m */,
 				002DF65C1BA9789F00D71DAD /* FRNewsModel.h */,
 				002DF65D1BA9789F00D71DAD /* FRNewsModel.m */,
 			);
@@ -427,6 +432,7 @@
 				43EE86121BA7CF6800C6D395 /* FRAppDelegate.m in Sources */,
 				432059F91BA955FD000E3B85 /* FRBaseView.m in Sources */,
 				002DF65E1BA9789F00D71DAD /* FRNewsModel.m in Sources */,
+				D33D2E0F1BAA6220005AB7F6 /* FRPost.m in Sources */,
 				B23DF5FB1BA95F88007C67C0 /* SimpleTableCell.m in Sources */,
 				432059FC1BA9562A000E3B85 /* FRBaseCell.m in Sources */,
 				B23357621BA987A1008B0FDE /* FRDetailViewController.m in Sources */,

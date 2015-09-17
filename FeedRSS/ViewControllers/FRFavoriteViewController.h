@@ -10,5 +10,5 @@
 
 @interface FRFavoriteViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *table;
-
+@property (nonatomic, strong) NSArray *posts;
 @end
