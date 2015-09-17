@@ -29,6 +29,7 @@
 		B23DF5FC1BA95F88007C67C0 /* SimpleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B23DF5FA1BA95F88007C67C0 /* SimpleTableCell.xib */; };
 		B23DF5FF1BA961DB007C67C0 /* FRFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23DF5FE1BA961DB007C67C0 /* FRFavoriteViewController.m */; };
 		B23DF6011BA96495007C67C0 /* husky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B23DF6001BA96495007C67C0 /* husky.jpg */; };
+		D33D2E201BAA9FDD005AB7F6 /* FRPostDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = D33D2E1F1BAA9FDD005AB7F6 /* FRPostDAO.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,8 @@
 		B23DF5FD1BA961DB007C67C0 /* FRFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFavoriteViewController.h; sourceTree = "<group>"; };
 		B23DF5FE1BA961DB007C67C0 /* FRFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFavoriteViewController.m; sourceTree = "<group>"; };
 		B23DF6001BA96495007C67C0 /* husky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = husky.jpg; path = Images.xcassets/husky.jpg; sourceTree = "<group>"; };
+		D33D2E1E1BAA9FDD005AB7F6 /* FRPostDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRPostDAO.h; sourceTree = "<group>"; };
+		D33D2E1F1BAA9FDD005AB7F6 /* FRPostDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRPostDAO.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +229,7 @@
 		43EE860B1BA7CF6800C6D395 /* FeedRSS */ = {
 			isa = PBXGroup;
 			children = (
+				D33D2E1C1BAA9F63005AB7F6 /* DAO */,
 				002DF6581BA974C000D71DAD /* Common */,
 				002DF6551BA9749A00D71DAD /* Libraries */,
 				4312F3FD1BA82546006A350F /* Models */,
@@ -288,6 +292,15 @@
 				7028C0195D4B7B810497185F /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D33D2E1C1BAA9F63005AB7F6 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				D33D2E1E1BAA9FDD005AB7F6 /* FRPostDAO.h */,
+				D33D2E1F1BAA9FDD005AB7F6 /* FRPostDAO.m */,
+			);
+			name = DAO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,6 +453,7 @@
 				432059F61BA94E8B000E3B85 /* FRBaseViewController.m in Sources */,
 				002DF65B1BA9750200D71DAD /* FRFetchArticleServices.m in Sources */,
 				4312F4111BA82C2D006A350F /* FRNSString+Hash.m in Sources */,
+				D33D2E201BAA9FDD005AB7F6 /* FRPostDAO.m in Sources */,
 				4312F4061BA82AB3006A350F /* FRCommonUtils.m in Sources */,
 				43EE86151BA7CF6800C6D395 /* FeedRSS.xcdatamodeld in Sources */,
 				43EE860F1BA7CF6800C6D395 /* main.m in Sources */,
