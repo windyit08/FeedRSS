@@ -7,7 +7,36 @@
 //
 
 #import "FRNewsModel.h"
+#import "FRNewsObject.h"
+#import "FRWebAPIError.h"
+#import "FRAPIWorker.h"
+#import "FRHTTPRequestOperationManager.h"
+#import "AFNetworking.h"
 
 @implementation FRNewsModel
+
+#define BASE_URL = @"http://vnexpress.net/";
+#define HOME_NEWS_CONTENT = @"rss/tin-moi-nhat.rss";
+
+-(void)requestNewsList:(NSString *)urlNews
+               success:(void (^)(FRNewsObject *newsObject))success
+               failure:(void (^)(NSString *errorMessage))failure{
+/*
+ 
+//NSString *URL = [NSString stringWithFormat:@"http://vnexpress.net/rss/tin-moi-nhat.rss"];
+ NSString *URL = urlNews;
+ AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+ 
+ [manager GET:URL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+ NSLog(@"JSON: %@", responseObject);
+ } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+ NSLog(@"Error: %@", error);
+ }];
+ 
+ */
+
+    [FRAPIWorker requestAPIAsync:urlNews success:success failure:failure];
+    
+}
 
 @end

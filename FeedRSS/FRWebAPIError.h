@@ -1,14 +1,13 @@
 //
-//  FetchArticleServices.m
+//  FRWebAPIError.h
 //  FeedRSS
 //
 //  Created by ThanhDM on 9/16/15.
 //  Copyright (c) 2015 Training. All rights reserved.
 //
 
-#import "FRFetchArticleServices.h"
+#import <Foundation/Foundation.h>
 
-@implementation FRFetchArticleServices
-
+@interface FRWebAPIError : NSObject
 
 @end
