@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="voW-hB-VsH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="voW-hB-VsH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -73,10 +73,10 @@
             </objects>
             <point key="canvasLocation" x="2326" y="2159"/>
         </scene>
-        <!--Base View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FRBaseViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FRHomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -85,21 +85,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bp9-Gr-nYf">
-                                <rect key="frame" x="190" y="249" width="300" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TYI-mb-CPW">
+                                <rect key="frame" x="0.0" y="28" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="HomCell" id="z05-Fe-M2w">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z05-Fe-M2w" id="JvF-OJ-BYk">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="giD-sE-oKD" kind="push" identifier="ViewHomeAction" id="xR8-gx-qxX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="clr-c3-hD4"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4wa-8w-95T"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Bp9-Gr-nYf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:2" id="M5d-k6-Toh"/>
-                            <constraint firstAttribute="centerX" secondItem="Bp9-Gr-nYf" secondAttribute="centerX" constant="-40" id="WfU-He-Sm0"/>
-                            <constraint firstAttribute="centerY" secondItem="Bp9-Gr-nYf" secondAttribute="centerY" constant="40.5" id="ekK-Nh-TzQ"/>
+                            <constraint firstItem="TYI-mb-CPW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="28" id="2iV-Y3-8Eb"/>
+                            <constraint firstAttribute="trailing" secondItem="TYI-mb-CPW" secondAttribute="trailing" id="4o9-Xw-JMh"/>
+                            <constraint firstItem="TYI-mb-CPW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DYn-qZ-FFf"/>
+                            <constraint firstAttribute="bottom" secondItem="TYI-mb-CPW" secondAttribute="bottom" id="aph-00-9Sw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mrr-Jt-alx"/>
+                    <connections>
+                        <outlet property="table" destination="TYI-mb-CPW" id="lru-C0-BAX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

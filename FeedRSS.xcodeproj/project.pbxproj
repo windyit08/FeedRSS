@@ -28,6 +28,9 @@
 		77099A0F1BABAF170056027D /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77099A0D1BABAF170056027D /* ArticleTableViewCell.xib */; };
 		7BF7CDA4CDC30AD69664F8F2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7028C0195D4B7B810497185F /* libPods.a */; };
 		B23357621BA987A1008B0FDE /* FRDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23357611BA987A1008B0FDE /* FRDetailViewController.m */; };
+		B23357711BABB943008B0FDE /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B233576F1BABB943008B0FDE /* HomeCell.m */; };
+		B23357721BABB943008B0FDE /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B23357701BABB943008B0FDE /* HomeCell.xib */; };
+		B23357751BABB952008B0FDE /* FRHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23357741BABB952008B0FDE /* FRHomeViewController.m */; };
 		B23DF5FF1BA961DB007C67C0 /* FRFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23DF5FE1BA961DB007C67C0 /* FRFavoriteViewController.m */; };
 		B23DF6011BA96495007C67C0 /* husky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B23DF6001BA96495007C67C0 /* husky.jpg */; };
 /* End PBXBuildFile section */
@@ -85,6 +88,11 @@
 		96D187C4B5E05698EF014FFE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B23357601BA987A1008B0FDE /* FRDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRDetailViewController.h; sourceTree = "<group>"; };
 		B23357611BA987A1008B0FDE /* FRDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRDetailViewController.m; sourceTree = "<group>"; };
+		B233576E1BABB943008B0FDE /* HomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCell.h; sourceTree = "<group>"; };
+		B233576F1BABB943008B0FDE /* HomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
+		B23357701BABB943008B0FDE /* HomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
+		B23357731BABB952008B0FDE /* FRHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRHomeViewController.h; sourceTree = "<group>"; };
+		B23357741BABB952008B0FDE /* FRHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRHomeViewController.m; sourceTree = "<group>"; };
 		B23DF5FD1BA961DB007C67C0 /* FRFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFavoriteViewController.h; sourceTree = "<group>"; };
 		B23DF5FE1BA961DB007C67C0 /* FRFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFavoriteViewController.m; sourceTree = "<group>"; };
 		B23DF6001BA96495007C67C0 /* husky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = husky.jpg; path = Images.xcassets/husky.jpg; sourceTree = "<group>"; };
@@ -157,6 +165,8 @@
 		4312F3FF1BA82546006A350F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B23357731BABB952008B0FDE /* FRHomeViewController.h */,
+				B23357741BABB952008B0FDE /* FRHomeViewController.m */,
 				B23357601BA987A1008B0FDE /* FRDetailViewController.h */,
 				B23357611BA987A1008B0FDE /* FRDetailViewController.m */,
 				432059F41BA94E8B000E3B85 /* FRBaseViewController.h */,
@@ -206,6 +216,9 @@
 		4312F4121BA82C77006A350F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				B233576E1BABB943008B0FDE /* HomeCell.h */,
+				B233576F1BABB943008B0FDE /* HomeCell.m */,
+				B23357701BABB943008B0FDE /* HomeCell.xib */,
 				77099A0B1BABAF170056027D /* ArticleTableViewCell.h */,
 				77099A0C1BABAF170056027D /* ArticleTableViewCell.m */,
 				77099A0D1BABAF170056027D /* ArticleTableViewCell.xib */,
@@ -386,6 +399,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B23357721BABB943008B0FDE /* HomeCell.xib in Resources */,
 				43EE861B1BA7CF6800C6D395 /* Main.storyboard in Resources */,
 				4312F3F91BA82497006A350F /* Localizable.strings in Resources */,
 				43EE86201BA7CF6800C6D395 /* LaunchScreen.xib in Resources */,
@@ -445,6 +459,7 @@
 				43EE86121BA7CF6800C6D395 /* FRAppDelegate.m in Sources */,
 				432059F91BA955FD000E3B85 /* FRBaseView.m in Sources */,
 				430D7AA91BAAC74A00123D39 /* FRNewsModel.m in Sources */,
+				B23357751BABB952008B0FDE /* FRHomeViewController.m in Sources */,
 				432059FC1BA9562A000E3B85 /* FRBaseCell.m in Sources */,
 				B23357621BA987A1008B0FDE /* FRDetailViewController.m in Sources */,
 				430D7AAD1BAAC7BF00123D39 /* FRPost.m in Sources */,
@@ -456,6 +471,7 @@
 				4312F4061BA82AB3006A350F /* FRCommonUtils.m in Sources */,
 				43EE86151BA7CF6800C6D395 /* FeedRSS.xcdatamodeld in Sources */,
 				77099A0E1BABAF170056027D /* ArticleTableViewCell.m in Sources */,
+				B23357711BABB943008B0FDE /* HomeCell.m in Sources */,
 				43EE860F1BA7CF6800C6D395 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

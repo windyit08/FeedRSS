@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FRHomeViewController : UIViewController
+@interface FRHomeViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *table;
 
 @end
