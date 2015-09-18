@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FRNewsObject.h"
+#import "FRWebAPIError.h"
 
 @interface FRNewsModel : NSObject
 
+-(void)requestNewsList:(NSString *)urlNews
+               success:(void (^)(FRNewsObject *newsObject))success
+               failure:(void (^)(NSString *errorMess))failure;
 @end
