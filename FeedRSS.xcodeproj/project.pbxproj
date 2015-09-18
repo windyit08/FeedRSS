@@ -37,6 +37,7 @@
 		B23357721BABB943008B0FDE /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B23357701BABB943008B0FDE /* HomeCell.xib */; };
 		B23357751BABB952008B0FDE /* FRHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23357741BABB952008B0FDE /* FRHomeViewController.m */; };
 		B23357921BABF57B008B0FDE /* FRITViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23357911BABF57B008B0FDE /* FRITViewController.m */; };
+		B23357951BABF6EF008B0FDE /* FRITBusinessController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23357941BABF6EF008B0FDE /* FRITBusinessController.m */; };
 		B23DF5FF1BA961DB007C67C0 /* FRFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23DF5FE1BA961DB007C67C0 /* FRFavoriteViewController.m */; };
 		B23DF6011BA96495007C67C0 /* husky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B23DF6001BA96495007C67C0 /* husky.jpg */; };
 /* End PBXBuildFile section */
@@ -112,6 +113,8 @@
 		B23357741BABB952008B0FDE /* FRHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRHomeViewController.m; sourceTree = "<group>"; };
 		B23357901BABF57B008B0FDE /* FRITViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRITViewController.h; sourceTree = "<group>"; };
 		B23357911BABF57B008B0FDE /* FRITViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRITViewController.m; sourceTree = "<group>"; };
+		B23357931BABF6EF008B0FDE /* FRITBusinessController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRITBusinessController.h; sourceTree = "<group>"; };
+		B23357941BABF6EF008B0FDE /* FRITBusinessController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRITBusinessController.m; sourceTree = "<group>"; };
 		B23DF5FD1BA961DB007C67C0 /* FRFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFavoriteViewController.h; sourceTree = "<group>"; };
 		B23DF5FE1BA961DB007C67C0 /* FRFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFavoriteViewController.m; sourceTree = "<group>"; };
 		B23DF6001BA96495007C67C0 /* husky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = husky.jpg; path = Images.xcassets/husky.jpg; sourceTree = "<group>"; };
@@ -221,6 +224,8 @@
 		4312F4031BA82A0D006A350F /* BusinessControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B23357931BABF6EF008B0FDE /* FRITBusinessController.h */,
+				B23357941BABF6EF008B0FDE /* FRITBusinessController.m */,
 				433C695C1BABB420008C98A4 /* FRFavoriteBusinessController.h */,
 				433C695D1BABB420008C98A4 /* FRFavoriteBusinessController.m */,
 			);
@@ -496,6 +501,7 @@
 				B23357751BABB952008B0FDE /* FRHomeViewController.m in Sources */,
 				432059FC1BA9562A000E3B85 /* FRBaseCell.m in Sources */,
 				B23357621BA987A1008B0FDE /* FRDetailViewController.m in Sources */,
+				B23357951BABF6EF008B0FDE /* FRITBusinessController.m in Sources */,
 				430D7AAD1BAAC7BF00123D39 /* FRPost.m in Sources */,
 				B23DF5FF1BA961DB007C67C0 /* FRFavoriteViewController.m in Sources */,
 				771B6EEA1BABE95800F3AC3C /* FRAPIWorker.m in Sources */,

@@ -8,9 +8,13 @@
 
 #import "FRITViewController.h"
 #import "FRDetailViewController.h"
+#import "FRITBusinessController.h"
 #import "HomeCell.h"
 
 @interface FRITViewController ()
+{
+    FRITBusinessController *businessController;
+}
 
 @end
 
@@ -20,9 +24,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-     [self.table registerNib:[UINib nibWithNibName:NSStringFromClass([HomeCell class]) bundle:nil] forCellReuseIdentifier:@"HomeCell"];
+    
+    [self.table registerNib:[UINib nibWithNibName:NSStringFromClass([HomeCell class]) bundle:nil] forCellReuseIdentifier:@"HomeCell"];
+    businessController = [[FRITBusinessController alloc] init];
+    self.table.dataSource = businessController.dataSource;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    __weak __typeof(self)weakSelf = self;
+    [businessController loadAllNews:^{
+        [weakSelf.table reloadData];
+    } failure:^(NSString *errorMessage) {
+        //Alert
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -49,37 +66,7 @@
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    
-    
-    {
-        HomeCell * cell = nil;
-        
-        static NSString *simpleTableIndentifier = @"HomeCell";
-        
-        
-        cell = (HomeCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIndentifier];
-        
-        if(cell == nil){
-            
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"HomeCell" owner:self options:nil];
-            
-            cell = [nib objectAtIndex:0];
-            
-        }
-        //FRPost *post = [posts objectAtIndex:indexPath.row];
-        //cell.nameLabel.text = post.title;
-        cell.nameLabel.text = @" IT";
-        //cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
-        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
 
-        return cell;
-        
-    }
-    
-}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UIAlertView *messageAlert = [[UIAlertView alloc]
