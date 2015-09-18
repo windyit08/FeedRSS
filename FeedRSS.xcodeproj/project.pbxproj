@@ -7,13 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		002DF65B1BA9750200D71DAD /* FRFetchArticleServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF65A1BA9750200D71DAD /* FRFetchArticleServices.m */; };
-		002DF65E1BA9789F00D71DAD /* FRNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF65D1BA9789F00D71DAD /* FRNewsModel.m */; };
-		002DF6611BA9985000D71DAD /* FRNewsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF6601BA9985000D71DAD /* FRNewsObject.m */; };
-		002DF6641BA9A1FD00D71DAD /* FRWebAPIError.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF6631BA9A1FD00D71DAD /* FRWebAPIError.m */; };
-		002DF6691BAA5CF100D71DAD /* FRNewsModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF6681BAA5CF100D71DAD /* FRNewsModelTest.m */; };
-		002DF66C1BAA721400D71DAD /* FRHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF66B1BAA721400D71DAD /* FRHTTPRequestOperationManager.m */; };
-		002DF66F1BAA789A00D71DAD /* FRAPIWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF66E1BAA789A00D71DAD /* FRAPIWorker.m */; };
+		430D7AA81BAAC74A00123D39 /* FRFetchArticleServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 430D7AA31BAAC74A00123D39 /* FRFetchArticleServices.m */; };
+		430D7AA91BAAC74A00123D39 /* FRNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 430D7AA51BAAC74A00123D39 /* FRNewsModel.m */; };
+		430D7AAD1BAAC7BF00123D39 /* FRPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 430D7AAC1BAAC7BF00123D39 /* FRPost.m */; };
+		430D7AB41BAAC83300123D39 /* FRPostDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 430D7AB31BAAC83300123D39 /* FRPostDAO.m */; };
 		4312F3F91BA82497006A350F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4312F3FB1BA82497006A350F /* Localizable.strings */; };
 		4312F4061BA82AB3006A350F /* FRCommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312F4051BA82AB3006A350F /* FRCommonUtils.m */; };
 		4312F4111BA82C2D006A350F /* FRNSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312F4101BA82C2D006A350F /* FRNSString+Hash.m */; };
@@ -27,11 +24,10 @@
 		43EE861D1BA7CF6800C6D395 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43EE861C1BA7CF6800C6D395 /* Images.xcassets */; };
 		43EE86201BA7CF6800C6D395 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43EE861E1BA7CF6800C6D395 /* LaunchScreen.xib */; };
 		43EE862C1BA7CF6800C6D395 /* FeedRSSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EE862B1BA7CF6800C6D395 /* FeedRSSTests.m */; };
+		77099A0E1BABAF170056027D /* ArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77099A0C1BABAF170056027D /* ArticleTableViewCell.m */; };
+		77099A0F1BABAF170056027D /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77099A0D1BABAF170056027D /* ArticleTableViewCell.xib */; };
 		7BF7CDA4CDC30AD69664F8F2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7028C0195D4B7B810497185F /* libPods.a */; };
 		B23357621BA987A1008B0FDE /* FRDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23357611BA987A1008B0FDE /* FRDetailViewController.m */; };
-		B23357651BAA7339008B0FDE /* FRPost.m in Sources */ = {isa = PBXBuildFile; fileRef = B23357641BAA7339008B0FDE /* FRPost.m */; };
-		B23DF5FB1BA95F88007C67C0 /* SimpleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B23DF5F91BA95F88007C67C0 /* SimpleTableCell.m */; };
-		B23DF5FC1BA95F88007C67C0 /* SimpleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B23DF5FA1BA95F88007C67C0 /* SimpleTableCell.xib */; };
 		B23DF5FF1BA961DB007C67C0 /* FRFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23DF5FE1BA961DB007C67C0 /* FRFavoriteViewController.m */; };
 		B23DF6011BA96495007C67C0 /* husky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B23DF6001BA96495007C67C0 /* husky.jpg */; };
 /* End PBXBuildFile section */
@@ -47,20 +43,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		002DF6591BA9750200D71DAD /* FRFetchArticleServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFetchArticleServices.h; sourceTree = "<group>"; };
-		002DF65A1BA9750200D71DAD /* FRFetchArticleServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFetchArticleServices.m; sourceTree = "<group>"; };
-		002DF65C1BA9789F00D71DAD /* FRNewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRNewsModel.h; path = FeedRSS/FRNewsModel.h; sourceTree = SOURCE_ROOT; };
-		002DF65D1BA9789F00D71DAD /* FRNewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRNewsModel.m; path = FeedRSS/FRNewsModel.m; sourceTree = SOURCE_ROOT; };
-		002DF65F1BA9985000D71DAD /* FRNewsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRNewsObject.h; path = FeedRSS/FRNewsObject.h; sourceTree = SOURCE_ROOT; };
-		002DF6601BA9985000D71DAD /* FRNewsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRNewsObject.m; path = FeedRSS/FRNewsObject.m; sourceTree = SOURCE_ROOT; };
-		002DF6621BA9A1FD00D71DAD /* FRWebAPIError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRWebAPIError.h; sourceTree = "<group>"; };
-		002DF6631BA9A1FD00D71DAD /* FRWebAPIError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRWebAPIError.m; sourceTree = "<group>"; };
-		002DF6651BA9A45900D71DAD /* FRCommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRCommonDefine.h; sourceTree = "<group>"; };
-		002DF6681BAA5CF100D71DAD /* FRNewsModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRNewsModelTest.m; sourceTree = "<group>"; };
-		002DF66A1BAA721400D71DAD /* FRHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRHTTPRequestOperationManager.h; sourceTree = "<group>"; };
-		002DF66B1BAA721400D71DAD /* FRHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRHTTPRequestOperationManager.m; sourceTree = "<group>"; };
-		002DF66D1BAA789A00D71DAD /* FRAPIWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRAPIWorker.h; sourceTree = "<group>"; };
-		002DF66E1BAA789A00D71DAD /* FRAPIWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRAPIWorker.m; sourceTree = "<group>"; };
+		430D7AA21BAAC74A00123D39 /* FRFetchArticleServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFetchArticleServices.h; sourceTree = "<group>"; };
+		430D7AA31BAAC74A00123D39 /* FRFetchArticleServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFetchArticleServices.m; sourceTree = "<group>"; };
+		430D7AA41BAAC74A00123D39 /* FRNewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRNewsModel.h; sourceTree = "<group>"; };
+		430D7AA51BAAC74A00123D39 /* FRNewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRNewsModel.m; sourceTree = "<group>"; };
+		430D7AAB1BAAC7BF00123D39 /* FRPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRPost.h; sourceTree = "<group>"; };
+		430D7AAC1BAAC7BF00123D39 /* FRPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRPost.m; sourceTree = "<group>"; };
+		430D7AB21BAAC83300123D39 /* FRPostDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRPostDAO.h; sourceTree = "<group>"; };
+		430D7AB31BAAC83300123D39 /* FRPostDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRPostDAO.m; sourceTree = "<group>"; };
 		4312F3FA1BA82497006A350F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4312F3FC1BA824A8006A350F /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4312F4041BA82AB3006A350F /* FRCommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRCommonUtils.h; sourceTree = "<group>"; };
@@ -88,15 +78,13 @@
 		43EE862A1BA7CF6800C6D395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43EE862B1BA7CF6800C6D395 /* FeedRSSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedRSSTests.m; sourceTree = "<group>"; };
 		7028C0195D4B7B810497185F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		77099A0B1BABAF170056027D /* ArticleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleTableViewCell.h; sourceTree = "<group>"; };
+		77099A0C1BABAF170056027D /* ArticleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleTableViewCell.m; sourceTree = "<group>"; };
+		77099A0D1BABAF170056027D /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
 		8E4BEDE5EFD468B5122BCDCD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		96D187C4B5E05698EF014FFE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B23357601BA987A1008B0FDE /* FRDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRDetailViewController.h; sourceTree = "<group>"; };
 		B23357611BA987A1008B0FDE /* FRDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRDetailViewController.m; sourceTree = "<group>"; };
-		B23357631BAA7339008B0FDE /* FRPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRPost.h; sourceTree = SOURCE_ROOT; };
-		B23357641BAA7339008B0FDE /* FRPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRPost.m; sourceTree = SOURCE_ROOT; };
-		B23DF5F81BA95F88007C67C0 /* SimpleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleTableCell.h; sourceTree = "<group>"; };
-		B23DF5F91BA95F88007C67C0 /* SimpleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleTableCell.m; sourceTree = "<group>"; };
-		B23DF5FA1BA95F88007C67C0 /* SimpleTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleTableCell.xib; sourceTree = "<group>"; };
 		B23DF5FD1BA961DB007C67C0 /* FRFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFavoriteViewController.h; sourceTree = "<group>"; };
 		B23DF5FE1BA961DB007C67C0 /* FRFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFavoriteViewController.m; sourceTree = "<group>"; };
 		B23DF6001BA96495007C67C0 /* husky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = husky.jpg; path = Images.xcassets/husky.jpg; sourceTree = "<group>"; };
@@ -131,23 +119,28 @@
 		002DF6581BA974C000D71DAD /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				002DF6591BA9750200D71DAD /* FRFetchArticleServices.h */,
-				002DF65A1BA9750200D71DAD /* FRFetchArticleServices.m */,
-				002DF6621BA9A1FD00D71DAD /* FRWebAPIError.h */,
-				002DF6631BA9A1FD00D71DAD /* FRWebAPIError.m */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		430D7AB11BAAC83300123D39 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				430D7AB21BAAC83300123D39 /* FRPostDAO.h */,
+				430D7AB31BAAC83300123D39 /* FRPostDAO.m */,
+			);
+			path = DAO;
 			sourceTree = "<group>";
 		};
 		4312F3FD1BA82546006A350F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B23357631BAA7339008B0FDE /* FRPost.h */,
-				B23357641BAA7339008B0FDE /* FRPost.m */,
-				002DF65C1BA9789F00D71DAD /* FRNewsModel.h */,
-				002DF65D1BA9789F00D71DAD /* FRNewsModel.m */,
-				002DF65F1BA9985000D71DAD /* FRNewsObject.h */,
-				002DF6601BA9985000D71DAD /* FRNewsObject.m */,
+				430D7AAB1BAAC7BF00123D39 /* FRPost.h */,
+				430D7AAC1BAAC7BF00123D39 /* FRPost.m */,
+				430D7AA21BAAC74A00123D39 /* FRFetchArticleServices.h */,
+				430D7AA31BAAC74A00123D39 /* FRFetchArticleServices.m */,
+				430D7AA41BAAC74A00123D39 /* FRNewsModel.h */,
+				430D7AA51BAAC74A00123D39 /* FRNewsModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -157,11 +150,6 @@
 			children = (
 				4312F4041BA82AB3006A350F /* FRCommonUtils.h */,
 				4312F4051BA82AB3006A350F /* FRCommonUtils.m */,
-				002DF6651BA9A45900D71DAD /* FRCommonDefine.h */,
-				002DF66A1BAA721400D71DAD /* FRHTTPRequestOperationManager.h */,
-				002DF66B1BAA721400D71DAD /* FRHTTPRequestOperationManager.m */,
-				002DF66D1BAA789A00D71DAD /* FRAPIWorker.h */,
-				002DF66E1BAA789A00D71DAD /* FRAPIWorker.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -218,9 +206,9 @@
 		4312F4121BA82C77006A350F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B23DF5F81BA95F88007C67C0 /* SimpleTableCell.h */,
-				B23DF5F91BA95F88007C67C0 /* SimpleTableCell.m */,
-				B23DF5FA1BA95F88007C67C0 /* SimpleTableCell.xib */,
+				77099A0B1BABAF170056027D /* ArticleTableViewCell.h */,
+				77099A0C1BABAF170056027D /* ArticleTableViewCell.m */,
+				77099A0D1BABAF170056027D /* ArticleTableViewCell.xib */,
 				432059FA1BA9562A000E3B85 /* FRBaseCell.h */,
 				432059FB1BA9562A000E3B85 /* FRBaseCell.m */,
 			);
@@ -250,6 +238,7 @@
 		43EE860B1BA7CF6800C6D395 /* FeedRSS */ = {
 			isa = PBXGroup;
 			children = (
+				430D7AB11BAAC83300123D39 /* DAO */,
 				002DF6581BA974C000D71DAD /* Common */,
 				002DF6551BA9749A00D71DAD /* Libraries */,
 				4312F3FD1BA82546006A350F /* Models */,
@@ -285,7 +274,6 @@
 			children = (
 				43EE862B1BA7CF6800C6D395 /* FeedRSSTests.m */,
 				43EE86291BA7CF6800C6D395 /* Supporting Files */,
-				002DF6681BAA5CF100D71DAD /* FRNewsModelTest.m */,
 			);
 			path = FeedRSSTests;
 			sourceTree = "<group>";
@@ -399,10 +387,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				43EE861B1BA7CF6800C6D395 /* Main.storyboard in Resources */,
-				B23DF5FC1BA95F88007C67C0 /* SimpleTableCell.xib in Resources */,
 				4312F3F91BA82497006A350F /* Localizable.strings in Resources */,
 				43EE86201BA7CF6800C6D395 /* LaunchScreen.xib in Resources */,
 				B23DF6011BA96495007C67C0 /* husky.jpg in Resources */,
+				77099A0F1BABAF170056027D /* ArticleTableViewCell.xib in Resources */,
 				43EE861D1BA7CF6800C6D395 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,21 +444,18 @@
 			files = (
 				43EE86121BA7CF6800C6D395 /* FRAppDelegate.m in Sources */,
 				432059F91BA955FD000E3B85 /* FRBaseView.m in Sources */,
-				002DF65E1BA9789F00D71DAD /* FRNewsModel.m in Sources */,
-				B23357651BAA7339008B0FDE /* FRPost.m in Sources */,
-				B23DF5FB1BA95F88007C67C0 /* SimpleTableCell.m in Sources */,
-				002DF66F1BAA789A00D71DAD /* FRAPIWorker.m in Sources */,
+				430D7AA91BAAC74A00123D39 /* FRNewsModel.m in Sources */,
 				432059FC1BA9562A000E3B85 /* FRBaseCell.m in Sources */,
 				B23357621BA987A1008B0FDE /* FRDetailViewController.m in Sources */,
+				430D7AAD1BAAC7BF00123D39 /* FRPost.m in Sources */,
 				B23DF5FF1BA961DB007C67C0 /* FRFavoriteViewController.m in Sources */,
-				002DF6641BA9A1FD00D71DAD /* FRWebAPIError.m in Sources */,
 				432059F61BA94E8B000E3B85 /* FRBaseViewController.m in Sources */,
-				002DF65B1BA9750200D71DAD /* FRFetchArticleServices.m in Sources */,
 				4312F4111BA82C2D006A350F /* FRNSString+Hash.m in Sources */,
-				002DF66C1BAA721400D71DAD /* FRHTTPRequestOperationManager.m in Sources */,
+				430D7AA81BAAC74A00123D39 /* FRFetchArticleServices.m in Sources */,
+				430D7AB41BAAC83300123D39 /* FRPostDAO.m in Sources */,
 				4312F4061BA82AB3006A350F /* FRCommonUtils.m in Sources */,
-				002DF6611BA9985000D71DAD /* FRNewsObject.m in Sources */,
 				43EE86151BA7CF6800C6D395 /* FeedRSS.xcdatamodeld in Sources */,
+				77099A0E1BABAF170056027D /* ArticleTableViewCell.m in Sources */,
 				43EE860F1BA7CF6800C6D395 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,7 +464,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				002DF6691BAA5CF100D71DAD /* FRNewsModelTest.m in Sources */,
 				43EE862C1BA7CF6800C6D395 /* FeedRSSTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
