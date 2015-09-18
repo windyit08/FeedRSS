@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="voW-hB-VsH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="voW-hB-VsH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Top View Controller-->
+        <!--View Controller-->
         <scene sceneID="JPC-KS-jfS">
             <objects>
-                <viewController id="OE1-R1-PZX" customClass="TopViewController" sceneMemberID="viewController">
+                <viewController id="OE1-R1-PZX" customClass="FRITViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a7y-WJ-BWX"/>
                         <viewControllerLayoutGuide type="bottom" id="wqN-78-dH1"/>
@@ -19,21 +18,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I love You" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWn-Jv-K82">
-                                <rect key="frame" x="150" y="290" width="300" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ew8-Yk-8kM">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="HomeCell" id="G1r-CW-9le">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G1r-CW-9le" id="Hvp-q0-qKr">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="giD-sE-oKD" kind="push" identifier="ViewITAction" id="hGt-GN-1nn"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="OE1-R1-PZX" id="x4n-CO-PwJ"/>
+                                    <outlet property="delegate" destination="OE1-R1-PZX" id="yqH-ir-C8D"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="bWn-Jv-K82" secondAttribute="centerY" id="Myk-vP-5ta"/>
-                            <constraint firstAttribute="centerX" secondItem="bWn-Jv-K82" secondAttribute="centerX" id="hnL-Hy-e0b"/>
-                            <constraint firstItem="bWn-Jv-K82" firstAttribute="width" secondItem="HEu-ad-Jfw" secondAttribute="width" multiplier="1:2" id="pof-GJ-4kB"/>
+                            <constraint firstItem="wqN-78-dH1" firstAttribute="top" secondItem="ew8-Yk-8kM" secondAttribute="bottom" id="753-75-mQe"/>
+                            <constraint firstAttribute="trailing" secondItem="ew8-Yk-8kM" secondAttribute="trailing" id="Aib-rm-l48"/>
+                            <constraint firstItem="ew8-Yk-8kM" firstAttribute="top" secondItem="HEu-ad-Jfw" secondAttribute="top" id="lfY-Tp-x9p"/>
+                            <constraint firstItem="ew8-Yk-8kM" firstAttribute="leading" secondItem="HEu-ad-Jfw" secondAttribute="leading" id="xOV-xV-JyS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2Zb-1E-Ecx"/>
+                    <connections>
+                        <outlet property="table" destination="ew8-Yk-8kM" id="OkA-ZP-1u7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aau-Rm-uZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -255,6 +272,6 @@
         <image name="home" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1vq-gl-qlr"/>
+        <segue reference="hGt-GN-1nn"/>
     </inferredMetricsTieBreakers>
 </document>
