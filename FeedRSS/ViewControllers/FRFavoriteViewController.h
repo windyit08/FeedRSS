@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FRPostDAO.h"
 
 @interface FRFavoriteViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *table;
-@property (nonatomic, strong) NSArray *posts;
-
+@property (nonatomic, strong) NSMutableArray *posts;
+@property (retain, nonatomic) FRPostDAO *postDAO;
 @end

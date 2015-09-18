@@ -22,29 +22,22 @@
 @end
 
 @implementation FRFavoriteViewController
-- (NSManagedObjectContext *)managedObjectContext
-{
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
+
 @synthesize posts;
 @synthesize table;
+@synthesize postDAO;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.postDAO = [FRPostDAO sharedInstance];
+    self.posts = [self.postDAO listAllFavorite];
     
-    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:@"FRPost" inManagedObjectContext:managedObjectContext];
-    [fetchRequest setEntity:entity];
-    NSError *error;
-    self.posts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    self.title = @"Posts";
+    if(self.posts.count == 0) {
+        [self.postDAO populateWithDummies];
+        self.posts = [self.postDAO listAllFavorite];
+    }
+    
 //   [self.table registerNib:[UINib nibWithNibName:NSStringFromClass([SimpleTableCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([SimpleTableCell class])];
     
     favBusinessController = [[FRFavoriteBusinessController alloc] init];
@@ -80,8 +73,8 @@
 /**LIST VIEW*/
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 100;
-    //return self.posts.count;
+//    return 100;
+    return self.posts.count;
     
 }
 
@@ -99,7 +92,6 @@
         }
        
        [cell configCellWithData:nil];
-       
         return cell;
     
 }
@@ -112,7 +104,15 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete object from database
+        if([self.postDAO removeFavorite:[self.posts objectAtIndex:indexPath.row]]) {
+            
+            // Remove device from table view
+            [self.posts removeObjectAtIndex:indexPath.row];
+            [self.table deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+    }
 }
 
 

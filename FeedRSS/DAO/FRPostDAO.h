@@ -10,8 +10,9 @@
 
 @interface FRPostDAO : NSObject
 + (instancetype)sharedInstance;
-- (void) addFavoritePost:(NSDictionary *) post;
-- (void) addFavoritePost:(NSString *) guid withTile:(NSString *) title withText:(NSString *) text withThumb:(NSString *) thumb;
-- (void) removeFavorite : (FRPost*) post;
-
+- (BOOL) addFavoritePost:(NSDictionary *) post;
+- (BOOL) addFavoritePost:(NSString *) guid withTile:(NSString *) title withText:(NSString *) text withThumb:(NSString *) thumb;
+- (BOOL) removeFavorite : (FRPost*) post;
+- (NSMutableArray*) listAllFavorite;
+- (void) populateWithDummies;
 @end

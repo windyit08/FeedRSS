@@ -30,22 +30,20 @@
     return context;
 }
 
-- (void) addFavoritePost:(NSDictionary *)post {
+- (BOOL) addFavoritePost:(NSDictionary *)post {
     NSManagedObjectContext *context = [self managedObjectContext];
     NSManagedObject *postRss = [NSEntityDescription insertNewObjectForEntityForName:@"FRPost" inManagedObjectContext:context];
-    [postRss setValue:post[@"guid"] forKey:@"guid"];
-    [postRss setValue:post[@"title"] forKey:@"title"];
-    [postRss setValue:post[@"text"] forKey:@"text"];
-    [postRss setValue:post[@"thumb"] forKey:@"thumb"];
+    [postRss setValuesForKeysWithDictionary:post];
     [postRss setValue:[NSDate date] forKey:@"date"];
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Can't Insert! %@ %@", error, [error localizedDescription]);
-        return;
+        return NO;
     }
+    return YES;
 }
 
-- (void) addFavoritePost:(NSString *)guid withTile:(NSString *)title withText:(NSString *)text withThumb:(NSString *)thumb {
+- (BOOL) addFavoritePost:(NSString *)guid withTile:(NSString *)title withText:(NSString *)text withThumb:(NSString *)thumb {
     NSManagedObjectContext *context = [self managedObjectContext];
     NSManagedObject *post = [NSEntityDescription insertNewObjectForEntityForName:@"FRPost" inManagedObjectContext:context];
     [post setValue:guid forKey:@"guid"];
@@ -55,18 +53,72 @@
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Can't Insert! %@ %@", error, [error localizedDescription]);
-        return;
+        return NO;
     }
+    return YES;
 }
 
-- (void) removeFavorite:(FRPost *)post {
+- (BOOL) removeFavorite:(FRPost *)post {
     NSManagedObjectContext *context = [self managedObjectContext];
     [context deleteObject:post];
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+        return NO;
+    }
+    return YES;
+}
+
+- (NSMutableArray*) listAllFavorite {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"FRPost" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    return [[context executeFetchRequest:fetchRequest error:&error] mutableCopy];
+}
+- (void) populateWithDummies {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSManagedObject *post1 = [NSEntityDescription insertNewObjectForEntityForName:@"FRPost" inManagedObjectContext:context];
+    [post1 setValue:@"http://sohoa.vnexpress.net/tin-tuc/doi-song-so/apple-bi-chi-trich-vi-ban-iphone-6s-16-gb-3281230.html" forKey:@"guid"];
+    [post1 setValue:@"Apple bị chỉ trích vì bán iPhone 6s 16 GB" forKey:@"title"];
+    [post1 setValue:@"Một trong những điểm người dùng không hài lòng nhất trên iPhone mới là bộ nhớ thấp nhất 16 GB thay vì 32 GB." forKey:@"text"];
+    [post1 setValue:@"http://c1.f5.img.vnecdn.net/2015/09/18/iPhone-2-2281-1442546692_180x108.jpg" forKey:@"thumb"];
+    [post1 setValue:[NSDate date] forKey:@"date"];
+    
+    NSManagedObject *post2 = [NSEntityDescription insertNewObjectForEntityForName:@"FRPost" inManagedObjectContext:context];
+    [post2 setValue:@"http://sohoa.vnexpress.net/tin-tuc/san-pham/khac/nguoi-dung-it-hao-hung-voi-ios-9-hon-so-voi-ios-7-3281159.html" forKey:@"guid"];
+    [post2 setValue:@"Người dùng ít hào hứng với iOS 9 hơn so với iOS 7" forKey:@"title"];
+    [post2 setValue:@"iOS 9 được tải và cài đặt trên khoảng 15% thiết bị chạy iOS của Apple sau hơn một ngày trong khi cùng thời điểm này năm 2013, iOS 7 đã chiếm tới gần 30%." forKey:@"text"];
+    [post1 setValue:@"http://c1.f5.img.vnecdn.net/2015/09/18/ios09-1442540299_180x108.jpg" forKey:@"thumb"];
+    [post2 setValue:[NSDate date] forKey:@"date"];
+    
+    NSManagedObject *post3 = [NSEntityDescription insertNewObjectForEntityForName:@"FRPost" inManagedObjectContext:context];
+    [post3 setValue:@"http://sohoa.vnexpress.net/tin-tuc/san-pham/dien-thoai/iphone-6s-chi-hoat-dong-tot-voi-mieng-dan-man-hinh-sieu-mong-3281101.html" forKey:@"guid"];
+    [post3 setValue:@"iPhone 6s chỉ hoạt động tốt với miếng dán màn hình siêu mỏng" forKey:@"title"];
+    [post3 setValue:@"Tấm bảo vệ đạt chuẩn, mỏng dưới 0,3 mm mới không gây ảnh hưởng đến tính năng 3D Touch trên của bộ đôi iPhone mới." forKey:@"text"];
+    [post1 setValue:@"http://c1.f5.img.vnecdn.net/2015/09/18/appleevent-2015-46-14423824620-3265-8264-1442534928_180x108.jpg" forKey:@"thumb"];
+    [post3 setValue:[NSDate date] forKey:@"date"];
+    
+    NSManagedObject *post4 = [NSEntityDescription insertNewObjectForEntityForName:@"FRPost" inManagedObjectContext:context];
+    [post4 setValue:@"http://sohoa.vnexpress.net/tin-tuc/san-pham/dien-thoai/lg-sap-smartphone-android-vo-kim-loai-gia-tam-trung-3281202.html" forKey:@"guid"];
+    [post4 setValue:@"LG sắp smartphone Android vỏ kim loại, giá tầm trung" forKey:@"title"];
+    [post4 setValue:@"Mẫu smartphone mới có tên LG Class nằm trong tầm giá 6 đến 8 triệu đồng và dự kiến sẽ trình làng ngày 21/9." forKey:@"text"];
+    [post1 setValue:@"http://c1.f5.img.vnecdn.net/2015/09/18/LG-Class-jpg-6151-1442543131_180x108.png" forKey:@"thumb"];
+    [post4 setValue:[NSDate date] forKey:@"date"];
+    
+    NSManagedObject *post5 = [NSEntityDescription insertNewObjectForEntityForName:@"FRPost" inManagedObjectContext:context];
+    [post5 setValue:@"http://sohoa.vnexpress.net/tin-tuc/doi-song-so/nhan-qua-toi-4-trieu-dong-khi-mua-smartphone-lg-3281005.html" forKey:@"guid"];
+    [post5 setValue:@"Nhận quà tới 4 triệu đồng khi mua smartphone LG" forKey:@"title"];
+    [post5 setValue:@"Từ 15/9 đến 20/10, khi mua một số dòng sản phẩm smartphone của LG, người dùng sẽ được tặng những phần quà có giá trị đến 4 triệu đồng." forKey:@"text"];
+    [post1 setValue:@"http://c1.f5.img.vnecdn.net/2015/09/18/17-9-201552-902235979-3882-1442544125_180x108.jpeg" forKey:@"thumb"];
+    [post5 setValue:[NSDate date] forKey:@"date"];
+    
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
         return;
     }
 }
-
 @end
