@@ -79,7 +79,7 @@
         }
         //FRPost *post = [posts objectAtIndex:indexPath.row];
         //cell.nameLabel.text = post.title;
-        cell.nameLabel.text = @" IT";
+        cell.nameLabel.text = @" Home";
         //cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
         cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
         
