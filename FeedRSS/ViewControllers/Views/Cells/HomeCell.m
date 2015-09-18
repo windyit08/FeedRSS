@@ -12,6 +12,7 @@
 @synthesize nameLabel = _nameLabel;
 
 @synthesize thumbnailImageView = _thumbnailImageView;
+@synthesize dateLabel;
 
 
 - (void)awakeFromNib {
