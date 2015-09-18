@@ -10,8 +10,14 @@
 #import "SimpleTableCell.h"
 #import "FRDetailViewController.h"
 #import "FRPost.h"
+#import "FRFavoriteBusinessController.h"
 
 @interface FRFavoriteViewController ()
+{
+    FRFavoriteBusinessController *favBusinessController;
+}
+
+@property (weak, nonatomic) IBOutlet UITableView *tblFavorite;
 
 @end
 
@@ -40,6 +46,19 @@
     self.posts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     self.title = @"Posts";
        [self.table registerNib:[UINib nibWithNibName:NSStringFromClass([SimpleTableCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([SimpleTableCell class])];
+    
+    favBusinessController = [[FRFavoriteBusinessController alloc] init];
+    self.tblFavorite.dataSource = favBusinessController.dataSource;
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    __weak __typeof(self)weakSelf = self;
+    [favBusinessController loadAllFavorites:^{
+        [weakSelf.tblFavorite reloadData];
+    } failure:^(NSString *errorMessage) {
+        //Alert
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,36 +88,36 @@
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    NSLog(@"cellForRowAtIndexPath(index): %ld",indexPath.row);
-    
-    
-   {
-        SimpleTableCell * cell = nil;
-        
-        static NSString *simpleTableIndentifier = @"SimpleTableCell";
-        NSLog(@"cellForRowAtIndexPath(index): %ld 1",indexPath.row);
-        cell = (SimpleTableCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIndentifier];
-        NSLog(@"cellForRowAtIndexPath(index): %ld 2",indexPath.row);
-        if(cell == nil){
-            NSLog(@"cellForRowAtIndexPath(index): %ld 3",indexPath.row);
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SimpleTableCell" owner:self options:nil];
-            NSLog(@"cellForRowAtIndexPath(index): %ld 4",indexPath.row);
-            cell = [nib objectAtIndex:0];
-            NSLog(@"cellForRowAtIndexPath(index): %ld 5",indexPath.row);
-        }
-       //FRPost *post = [posts objectAtIndex:indexPath.row];
-       //cell.nameLabel.text = post.title;
-        cell.nameLabel.text = @" Favorite";
-        cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
-        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
-        
-        return cell;
-        
-    }
-    
-}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//    NSLog(@"cellForRowAtIndexPath(index): %ld",indexPath.row);
+//    
+//    
+//   {
+//        SimpleTableCell * cell = nil;
+//        
+//        static NSString *simpleTableIndentifier = @"SimpleTableCell";
+//        NSLog(@"cellForRowAtIndexPath(index): %ld 1",indexPath.row);
+//        cell = (SimpleTableCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIndentifier];
+//        NSLog(@"cellForRowAtIndexPath(index): %ld 2",indexPath.row);
+//        if(cell == nil){
+//            NSLog(@"cellForRowAtIndexPath(index): %ld 3",indexPath.row);
+//            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SimpleTableCell" owner:self options:nil];
+//            NSLog(@"cellForRowAtIndexPath(index): %ld 4",indexPath.row);
+//            cell = [nib objectAtIndex:0];
+//            NSLog(@"cellForRowAtIndexPath(index): %ld 5",indexPath.row);
+//        }
+//       //FRPost *post = [posts objectAtIndex:indexPath.row];
+//       //cell.nameLabel.text = post.title;
+//        cell.nameLabel.text = @" Favorite";
+//        cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
+//        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
+//        
+//        return cell;
+//        
+//    }
+//    
+//}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UIAlertView *messageAlert = [[UIAlertView alloc]

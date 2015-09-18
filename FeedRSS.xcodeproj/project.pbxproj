@@ -17,6 +17,7 @@
 		432059F61BA94E8B000E3B85 /* FRBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 432059F51BA94E8B000E3B85 /* FRBaseViewController.m */; };
 		432059F91BA955FD000E3B85 /* FRBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 432059F81BA955FD000E3B85 /* FRBaseView.m */; };
 		432059FC1BA9562A000E3B85 /* FRBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 432059FB1BA9562A000E3B85 /* FRBaseCell.m */; };
+		433C695E1BABB420008C98A4 /* FRFavoriteBusinessController.m in Sources */ = {isa = PBXBuildFile; fileRef = 433C695D1BABB420008C98A4 /* FRFavoriteBusinessController.m */; };
 		43EE860F1BA7CF6800C6D395 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EE860E1BA7CF6800C6D395 /* main.m */; };
 		43EE86121BA7CF6800C6D395 /* FRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EE86111BA7CF6800C6D395 /* FRAppDelegate.m */; };
 		43EE86151BA7CF6800C6D395 /* FeedRSS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43EE86131BA7CF6800C6D395 /* FeedRSS.xcdatamodeld */; };
@@ -65,6 +66,8 @@
 		432059F81BA955FD000E3B85 /* FRBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRBaseView.m; sourceTree = "<group>"; };
 		432059FA1BA9562A000E3B85 /* FRBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRBaseCell.h; sourceTree = "<group>"; };
 		432059FB1BA9562A000E3B85 /* FRBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRBaseCell.m; sourceTree = "<group>"; };
+		433C695C1BABB420008C98A4 /* FRFavoriteBusinessController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFavoriteBusinessController.h; sourceTree = "<group>"; };
+		433C695D1BABB420008C98A4 /* FRFavoriteBusinessController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFavoriteBusinessController.m; sourceTree = "<group>"; };
 		43EE86091BA7CF6800C6D395 /* FeedRSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedRSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43EE860D1BA7CF6800C6D395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43EE860E1BA7CF6800C6D395 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -181,6 +184,8 @@
 		4312F4031BA82A0D006A350F /* BusinessControllers */ = {
 			isa = PBXGroup;
 			children = (
+				433C695C1BABB420008C98A4 /* FRFavoriteBusinessController.h */,
+				433C695D1BABB420008C98A4 /* FRFavoriteBusinessController.m */,
 			);
 			path = BusinessControllers;
 			sourceTree = "<group>";
@@ -443,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43EE86121BA7CF6800C6D395 /* FRAppDelegate.m in Sources */,
+				433C695E1BABB420008C98A4 /* FRFavoriteBusinessController.m in Sources */,
 				432059F91BA955FD000E3B85 /* FRBaseView.m in Sources */,
 				B23DF5FB1BA95F88007C67C0 /* SimpleTableCell.m in Sources */,
 				430D7AA91BAAC74A00123D39 /* FRNewsModel.m in Sources */,
