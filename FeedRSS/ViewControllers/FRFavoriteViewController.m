@@ -25,6 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"Favorites";
+    
     favBusinessController = [[FRFavoriteBusinessController alloc] init];
     self.tblFavorite.dataSource = favBusinessController.dataSource;
 }

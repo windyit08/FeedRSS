@@ -84,9 +84,23 @@
     cell.titleLabel.text = article.title;
     cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
     
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:article.thumb]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        cell.thumbnailImageView.image = [UIImage imageWithData:data];
-    }];
+    cell.thumbnailImageView.image = nil; // [UIImage imageNamed:@"default.png"];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // retrive image on global queue
+        UIImage * img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:article.thumb]]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            FRArticleTableViewCell * cell = (FRArticleTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+            // assign cell image on main thread
+            cell.thumbnailImageView.image = img;
+        });
+    });
+//    
+//    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:article.thumb]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+//        cell.thumbnailImageView.image = [UIImage imageWithData:data];
+//    }];
     
     return cell;
 }
