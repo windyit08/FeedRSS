@@ -25,8 +25,8 @@
 		43EE861D1BA7CF6800C6D395 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43EE861C1BA7CF6800C6D395 /* Images.xcassets */; };
 		43EE86201BA7CF6800C6D395 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43EE861E1BA7CF6800C6D395 /* LaunchScreen.xib */; };
 		43EE862C1BA7CF6800C6D395 /* FeedRSSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EE862B1BA7CF6800C6D395 /* FeedRSSTests.m */; };
-		77099A0E1BABAF170056027D /* ArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77099A0C1BABAF170056027D /* ArticleTableViewCell.m */; };
-		77099A0F1BABAF170056027D /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77099A0D1BABAF170056027D /* ArticleTableViewCell.xib */; };
+		771B6EDA1BABDEC900F3AC3C /* FRArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B6ED81BABDEC900F3AC3C /* FRArticleTableViewCell.m */; };
+		771B6EDB1BABDEC900F3AC3C /* FRArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B6ED91BABDEC900F3AC3C /* FRArticleTableViewCell.xib */; };
 		7BF7CDA4CDC30AD69664F8F2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7028C0195D4B7B810497185F /* libPods.a */; };
 		B23357621BA987A1008B0FDE /* FRDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23357611BA987A1008B0FDE /* FRDetailViewController.m */; };
 		B23357711BABB943008B0FDE /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B233576F1BABB943008B0FDE /* HomeCell.m */; };
@@ -84,9 +84,9 @@
 		43EE862A1BA7CF6800C6D395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43EE862B1BA7CF6800C6D395 /* FeedRSSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedRSSTests.m; sourceTree = "<group>"; };
 		7028C0195D4B7B810497185F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		77099A0B1BABAF170056027D /* ArticleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleTableViewCell.h; sourceTree = "<group>"; };
-		77099A0C1BABAF170056027D /* ArticleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleTableViewCell.m; sourceTree = "<group>"; };
-		77099A0D1BABAF170056027D /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
+		771B6ED71BABDEC900F3AC3C /* FRArticleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRArticleTableViewCell.h; sourceTree = "<group>"; };
+		771B6ED81BABDEC900F3AC3C /* FRArticleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRArticleTableViewCell.m; sourceTree = "<group>"; };
+		771B6ED91BABDEC900F3AC3C /* FRArticleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FRArticleTableViewCell.xib; sourceTree = "<group>"; };
 		8E4BEDE5EFD468B5122BCDCD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		96D187C4B5E05698EF014FFE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B23357601BA987A1008B0FDE /* FRDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRDetailViewController.h; sourceTree = "<group>"; };
@@ -221,12 +221,12 @@
 		4312F4121BA82C77006A350F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				771B6ED71BABDEC900F3AC3C /* FRArticleTableViewCell.h */,
+				771B6ED81BABDEC900F3AC3C /* FRArticleTableViewCell.m */,
+				771B6ED91BABDEC900F3AC3C /* FRArticleTableViewCell.xib */,
 				B233576E1BABB943008B0FDE /* HomeCell.h */,
 				B233576F1BABB943008B0FDE /* HomeCell.m */,
 				B23357701BABB943008B0FDE /* HomeCell.xib */,
-				77099A0B1BABAF170056027D /* ArticleTableViewCell.h */,
-				77099A0C1BABAF170056027D /* ArticleTableViewCell.m */,
-				77099A0D1BABAF170056027D /* ArticleTableViewCell.xib */,
 				432059FA1BA9562A000E3B85 /* FRBaseCell.h */,
 				432059FB1BA9562A000E3B85 /* FRBaseCell.m */,
 			);
@@ -407,9 +407,9 @@
 				B23357721BABB943008B0FDE /* HomeCell.xib in Resources */,
 				43EE861B1BA7CF6800C6D395 /* Main.storyboard in Resources */,
 				4312F3F91BA82497006A350F /* Localizable.strings in Resources */,
+				771B6EDB1BABDEC900F3AC3C /* FRArticleTableViewCell.xib in Resources */,
 				43EE86201BA7CF6800C6D395 /* LaunchScreen.xib in Resources */,
 				B23DF6011BA96495007C67C0 /* husky.jpg in Resources */,
-				77099A0F1BABAF170056027D /* ArticleTableViewCell.xib in Resources */,
 				43EE861D1BA7CF6800C6D395 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,10 +473,10 @@
 				432059F61BA94E8B000E3B85 /* FRBaseViewController.m in Sources */,
 				4312F4111BA82C2D006A350F /* FRNSString+Hash.m in Sources */,
 				430D7AA81BAAC74A00123D39 /* FRFetchArticleServices.m in Sources */,
+				771B6EDA1BABDEC900F3AC3C /* FRArticleTableViewCell.m in Sources */,
 				430D7AB41BAAC83300123D39 /* FRPostDAO.m in Sources */,
 				4312F4061BA82AB3006A350F /* FRCommonUtils.m in Sources */,
 				43EE86151BA7CF6800C6D395 /* FeedRSS.xcdatamodeld in Sources */,
-				77099A0E1BABAF170056027D /* ArticleTableViewCell.m in Sources */,
 				B23357711BABB943008B0FDE /* HomeCell.m in Sources */,
 				43EE860F1BA7CF6800C6D395 /* main.m in Sources */,
 			);

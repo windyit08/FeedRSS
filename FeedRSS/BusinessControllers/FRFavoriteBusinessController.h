@@ -9,19 +9,22 @@
 #import <Foundation/Foundation.h>
 
 @class FRFavoriteDataSource;
+@class FRPostDAO;
 
 @interface FRFavoriteBusinessController : NSObject
 
 @property (nonatomic, strong) FRFavoriteDataSource *dataSource;
 
--(void)loadAllFavorites:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure;
+- (void)loadAllFavorites:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure;
 
 @end
 
 @interface FRFavoriteDataSource : NSObject<UITableViewDataSource>
 
-@property (nonatomic, strong) NSArray *favorites;
+@property (nonatomic, strong) NSMutableArray *favorites;
+@property (retain, nonatomic) FRPostDAO *postDAO;
 
--(NSArray *)favoritesList;
+- (NSArray *)favoritesList;
+-(void)loadAllFavorites:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure;
 
 @end
