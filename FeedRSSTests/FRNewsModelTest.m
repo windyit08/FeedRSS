@@ -28,16 +28,16 @@
 - (void)testExample {
     // This is an example of a functional test case.
     XCTAssert(YES, @"Pass");
-//    FRNewsModel *newsModel = [[FRNewsModel alloc] init];
-//    NSLog(@"[FR] Start test example");
-//    [newsModel requestNewsList:@"http://vnexpress.net/rss/tin-moi-nhat.rss" success:^(FRNewsObject *newsObject) {
-//        //Handle object here
-//        NSLog(@"[FR] Success to get rss");
-//        NSLog(@"FRNewsModelTest: sucess here");
-//    } failure:^(NSString *errorMess) {
-//        NSLog(@"[FR] Fail to get rss");
-//        NSLog(@"FRNewsModelTest: fail >> %@", errorMess);
-//    }];
+    FRNewsModel *newsModel = [[FRNewsModel alloc] init];
+    NSLog(@"[FR] Start test example");
+    [newsModel requestNewsList:@"http://vnexpress.net/rss/tin-moi-nhat.rss" success:^(FRNewsObject *newsObject) {
+        //Handle object here
+        NSLog(@"[FR] Success to get rss");
+        NSLog(@"FRNewsModelTest: sucess here");
+    } failure:^(NSString *errorMess) {
+        NSLog(@"[FR] Fail to get rss");
+        NSLog(@"FRNewsModelTest: fail >> %@", errorMess);
+    }];
 }
 
 - (void)testPerformanceExample {

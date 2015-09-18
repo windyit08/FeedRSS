@@ -20,16 +20,8 @@ NSString * const RESPONSE_ERROR_CONNECTION_FAILED = @"Connection failed!";
             failure:(void (^)(NSString *errorMessage))failure{
     NSLog(@"[FR][startRequest] Start startRequest");
     FRHTTPRequestOperationManager *manager = [FRHTTPRequestOperationManager sharedInstance];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/rss+xml"];
     [manager setResponseSerializer:[AFXMLParserResponseSerializer new]];
-    
-    /*
-     
-     DemoHTTPRequestOperationManager *manager = [DemoHTTPRequestOperationManager sharedInstance];
-     [manager setResponseSerializer:[AFXMLParserResponseSerializer new]];
-     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/rss+xml"];
-     
-     */
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/rss+xml"];
     
     AFHTTPRequestOperation* operation = [manager HTTPRequestOperationWithRequest:request
                                                                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
