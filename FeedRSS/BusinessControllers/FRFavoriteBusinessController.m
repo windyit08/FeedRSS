@@ -7,7 +7,9 @@
 //
 
 #import "FRFavoriteBusinessController.h"
-//#import "FRPost.h"
+#import "FRArticleTableViewCell.h"
+#import "FRPostDAO.h"
+#import "FRPost.h"
 
 @implementation FRFavoriteBusinessController
 
@@ -20,8 +22,11 @@
     return self;
 }
 
--(void)loadAllFavorites:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure
-{
+-(void)loadAllFavorites:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure {
+    
+    [self.dataSource loadAllFavorites:success failure:failure];
+    
+    /*
     //Call API
     //If OK
     self.dataSource.favorites = [NSArray arrayWithObjects:@"item 1", @"item2", nil];
@@ -29,6 +34,7 @@
     
     //If failed
     failure(@"Error message");
+     */
     
 }
 
@@ -36,17 +42,52 @@
 
 @implementation FRFavoriteDataSource
 
--(NSArray *)favoritesList
-{
+- (NSArray *)favoritesList {
     return self.favorites;
+}
+
+- (void)loadAllFavorites:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure {
+    
+    self.postDAO = [FRPostDAO sharedInstance];
+    self.favorites = [self.postDAO listAllFavorite];
+    
+    if(self.favorites.count == 0) {
+        [self.postDAO populateWithDummies];
+        self.favorites = [self.postDAO listAllFavorite];
+    }
+    
+    success();
 }
 
 #pragma mark - UITableViewDataSource methods
 
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"identifier" forIndexPath:indexPath];
+//    
+//    cell.textLabel.text = self.favorites[indexPath.row];
+//    return cell;
+//}
+
+// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"identifier" forIndexPath:indexPath];
     
-    cell.textLabel.text = self.favorites[indexPath.row];
+    static NSString *cellIndentifier = @"FRArticleTableViewCell";
+    FRArticleTableViewCell *cell = (FRArticleTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIndentifier];
+    if(cell == nil){
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"FRArticleTableViewCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
+    FRPost *article = [self.favorites objectAtIndex:indexPath.row];
+    
+    cell.titleLabel.text = article.title;
+    cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
+    
+    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:article.thumb]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        cell.thumbnailImageView.image = [UIImage imageWithData:data];
+    }];
+    
     return cell;
 }
 
@@ -56,6 +97,18 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete object from database
+        if([self.postDAO removeFavorite:[self.favorites objectAtIndex:indexPath.row]]) {
+            
+            // Remove device from table view
+            [self.favorites removeObjectAtIndex:indexPath.row];
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+    }
 }
 
 @end
