@@ -10,12 +10,14 @@
 
 @class FRFavoriteDataSource;
 @class FRPostDAO;
+@class FRPost;
 
 @interface FRFavoriteBusinessController : NSObject
 
 @property (nonatomic, strong) FRFavoriteDataSource *dataSource;
 
 - (void)loadAllFavorites:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure;
+- (NSString *)getSelectedUrl:(NSInteger)row;
 
 @end
 
@@ -25,6 +27,7 @@
 @property (retain, nonatomic) FRPostDAO *postDAO;
 
 - (NSArray *)favoritesList;
--(void)loadAllFavorites:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure;
+- (void)loadAllFavorites:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure;
+- (FRPost *)getSelectedArticle:(NSInteger)row;
 
 @end

@@ -25,6 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"Favorites";
+    
     favBusinessController = [[FRFavoriteBusinessController alloc] init];
     self.tblFavorite.dataSource = favBusinessController.dataSource;
 }
@@ -76,7 +78,7 @@
         
         FRDetailViewController *destViewController = segue.destinationViewController;
         
-        destViewController.Url = @"http://www.dantri.com.vn";
+        destViewController.Url = [favBusinessController getSelectedUrl:indexPath.row];
         
     }
 

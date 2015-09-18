@@ -1,5 +1,5 @@
 //
-//  ArticleTableViewCell.m
+//  FRArticleTableViewCell.m
 //  FeedRSS
 //
 //  Created by KinhNM1 on 9/3/15.

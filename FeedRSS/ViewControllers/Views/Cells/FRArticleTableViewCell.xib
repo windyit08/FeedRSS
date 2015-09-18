@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -34,9 +34,15 @@
                         </variation>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sd5-sK-QzU">
-                        <rect key="frame" x="120" y="34" width="289" height="21"/>
+                        <rect key="frame" x="120" y="24" width="289" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14:20 18/9/2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HxK-Sm-6eu">
+                        <rect key="frame" x="120" y="65" width="289" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.93668186664581299" green="0.62796278111412618" blue="0.24704547728183202" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -48,11 +54,14 @@
                     <constraint firstItem="LcZ-cW-N0r" firstAttribute="top" secondItem="1K0-Az-Z5t" secondAttribute="top" constant="6" id="AhV-fE-Tm6"/>
                     <constraint firstAttribute="trailing" secondItem="Sd5-sK-QzU" secondAttribute="trailing" constant="8" id="Ehd-hS-xSu"/>
                     <constraint firstAttribute="bottom" secondItem="LcZ-cW-N0r" secondAttribute="bottom" constant="8" id="GqD-Dg-bGd"/>
+                    <constraint firstAttribute="bottom" secondItem="HxK-Sm-6eu" secondAttribute="bottom" constant="8" id="LYQ-sY-FpA"/>
+                    <constraint firstAttribute="trailing" secondItem="HxK-Sm-6eu" secondAttribute="trailing" constant="8" id="QQT-RU-Nt4"/>
                     <constraint firstItem="LcZ-cW-N0r" firstAttribute="leading" secondItem="1K0-Az-Z5t" secondAttribute="leading" constant="8" id="ZjQ-rn-KHk"/>
                     <constraint firstItem="LcZ-cW-N0r" firstAttribute="leading" secondItem="1K0-Az-Z5t" secondAttribute="leading" constant="10" id="dbb-vN-L0g"/>
-                    <constraint firstAttribute="centerY" secondItem="Sd5-sK-QzU" secondAttribute="centerY" id="ew4-DS-Okr"/>
+                    <constraint firstAttribute="centerY" secondItem="Sd5-sK-QzU" secondAttribute="centerY" constant="10" id="ew4-DS-Okr"/>
                     <constraint firstAttribute="bottom" secondItem="LcZ-cW-N0r" secondAttribute="bottom" constant="5" id="gsI-3M-bDv"/>
                     <constraint firstItem="Sd5-sK-QzU" firstAttribute="leading" secondItem="LcZ-cW-N0r" secondAttribute="trailing" constant="10" id="sku-X7-TSl"/>
+                    <constraint firstItem="HxK-Sm-6eu" firstAttribute="leading" secondItem="LcZ-cW-N0r" secondAttribute="trailing" constant="10" id="ugy-e6-jXS"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Sd5-sK-QzU" secondAttribute="trailing" constant="10" id="zc3-jL-7zc"/>
                 </constraints>
                 <variation key="default">
@@ -69,6 +78,7 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="pubDateLabel" destination="HxK-Sm-6eu" id="Ueh-Pg-OOM"/>
                 <outlet property="thumbnailImageView" destination="LcZ-cW-N0r" id="uZY-zN-P9J"/>
                 <outlet property="titleLabel" destination="Sd5-sK-QzU" id="2an-qB-QQs"/>
             </connections>

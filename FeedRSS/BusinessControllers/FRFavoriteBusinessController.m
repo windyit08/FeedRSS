@@ -35,7 +35,10 @@
     //If failed
     failure(@"Error message");
      */
-    
+}
+
+- (NSString *)getSelectedUrl:(NSInteger)row {
+    return [self.dataSource getSelectedArticle:row].guid;
 }
 
 @end
@@ -57,6 +60,10 @@
     }
     
     success();
+}
+
+- (FRPost *)getSelectedArticle:(NSInteger)row {
+    return [self.favorites objectAtIndex:row];
 }
 
 #pragma mark - UITableViewDataSource methods
@@ -84,9 +91,39 @@
     cell.titleLabel.text = article.title;
     cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
     
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:article.thumb]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        cell.thumbnailImageView.image = [UIImage imageWithData:data];
-    }];
+    cell.thumbnailImageView.image = nil; // [UIImage imageNamed:@"default.png"];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"HH:mm dd/MM/yyyy"];
+    cell.pubDateLabel.text = [dateFormatter stringFromDate:article.date];
+    
+//    weak typeof(FRArticleTableViewCell)weakCell = cell;
+//    
+//    [cell.thumbnailImageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:article.thumb]]
+//                          placeholderImage:[UIImage imageNamed:@"img_loading.png"]
+//                                   success:^(NSURLRequest request, NSHTTPURLResponse response, UIImage *image) {
+//                                       weakCell.thumbnailImageView.image = image;
+//                                       [weakCell setNeedsLayout];
+//                                   } failure:^(NSURLRequest request, NSHTTPURLResponse response, NSError *error) {
+//                                       weakCell.thumbnailImageView.image = [UIImage imageNamed:@"img_no_thumbnail.png"];
+//                                   }];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // retrive image on global queue
+        UIImage * img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:article.thumb]]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            FRArticleTableViewCell * cell = (FRArticleTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+            // assign cell image on main thread
+            cell.thumbnailImageView.image = img;
+        });
+    });
+    
+//    
+//    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:article.thumb]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+//        cell.thumbnailImageView.image = [UIImage imageWithData:data];
+//    }];
     
     return cell;
 }
