@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002DF68C1BABE88A00D71DAD /* FRFetchArticleServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF6891BABE88A00D71DAD /* FRFetchArticleServices.m */; };
+		002DF68D1BABE88A00D71DAD /* FRWebAPIError.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF68B1BABE88A00D71DAD /* FRWebAPIError.m */; };
+		002DF6931BABE8C100D71DAD /* FRAPIWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF68F1BABE8C100D71DAD /* FRAPIWorker.m */; };
+		002DF6941BABE8C100D71DAD /* FRHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF6921BABE8C100D71DAD /* FRHTTPRequestOperationManager.m */; };
 		430D7AA81BAAC74A00123D39 /* FRFetchArticleServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 430D7AA31BAAC74A00123D39 /* FRFetchArticleServices.m */; };
 		430D7AA91BAAC74A00123D39 /* FRNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 430D7AA51BAAC74A00123D39 /* FRNewsModel.m */; };
 		430D7AAD1BAAC7BF00123D39 /* FRPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 430D7AAC1BAAC7BF00123D39 /* FRPost.m */; };
@@ -47,6 +51,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		002DF6881BABE88A00D71DAD /* FRFetchArticleServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRFetchArticleServices.h; path = Common/FRFetchArticleServices.h; sourceTree = "<group>"; };
+		002DF6891BABE88A00D71DAD /* FRFetchArticleServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRFetchArticleServices.m; path = Common/FRFetchArticleServices.m; sourceTree = "<group>"; };
+		002DF68A1BABE88A00D71DAD /* FRWebAPIError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRWebAPIError.h; path = Common/FRWebAPIError.h; sourceTree = "<group>"; };
+		002DF68B1BABE88A00D71DAD /* FRWebAPIError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRWebAPIError.m; path = Common/FRWebAPIError.m; sourceTree = "<group>"; };
+		002DF68E1BABE8C100D71DAD /* FRAPIWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRAPIWorker.h; sourceTree = "<group>"; };
+		002DF68F1BABE8C100D71DAD /* FRAPIWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRAPIWorker.m; sourceTree = "<group>"; };
+		002DF6901BABE8C100D71DAD /* FRCommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRCommonDefine.h; sourceTree = "<group>"; };
+		002DF6911BABE8C100D71DAD /* FRHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		002DF6921BABE8C100D71DAD /* FRHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRHTTPRequestOperationManager.m; sourceTree = "<group>"; };
 		430D7AA21BAAC74A00123D39 /* FRFetchArticleServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFetchArticleServices.h; sourceTree = "<group>"; };
 		430D7AA31BAAC74A00123D39 /* FRFetchArticleServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFetchArticleServices.m; sourceTree = "<group>"; };
 		430D7AA41BAAC74A00123D39 /* FRNewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRNewsModel.h; sourceTree = "<group>"; };
@@ -130,6 +143,10 @@
 		002DF6581BA974C000D71DAD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				002DF6881BABE88A00D71DAD /* FRFetchArticleServices.h */,
+				002DF6891BABE88A00D71DAD /* FRFetchArticleServices.m */,
+				002DF68A1BABE88A00D71DAD /* FRWebAPIError.h */,
+				002DF68B1BABE88A00D71DAD /* FRWebAPIError.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -159,6 +176,11 @@
 		4312F3FE1BA82546006A350F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				002DF68E1BABE8C100D71DAD /* FRAPIWorker.h */,
+				002DF68F1BABE8C100D71DAD /* FRAPIWorker.m */,
+				002DF6901BABE8C100D71DAD /* FRCommonDefine.h */,
+				002DF6911BABE8C100D71DAD /* FRHTTPRequestOperationManager.h */,
+				002DF6921BABE8C100D71DAD /* FRHTTPRequestOperationManager.m */,
 				4312F4041BA82AB3006A350F /* FRCommonUtils.h */,
 				4312F4051BA82AB3006A350F /* FRCommonUtils.m */,
 			);
@@ -468,10 +490,14 @@
 				B23357751BABB952008B0FDE /* FRHomeViewController.m in Sources */,
 				432059FC1BA9562A000E3B85 /* FRBaseCell.m in Sources */,
 				B23357621BA987A1008B0FDE /* FRDetailViewController.m in Sources */,
+				002DF6941BABE8C100D71DAD /* FRHTTPRequestOperationManager.m in Sources */,
+				002DF6931BABE8C100D71DAD /* FRAPIWorker.m in Sources */,
 				430D7AAD1BAAC7BF00123D39 /* FRPost.m in Sources */,
 				B23DF5FF1BA961DB007C67C0 /* FRFavoriteViewController.m in Sources */,
 				432059F61BA94E8B000E3B85 /* FRBaseViewController.m in Sources */,
 				4312F4111BA82C2D006A350F /* FRNSString+Hash.m in Sources */,
+				002DF68C1BABE88A00D71DAD /* FRFetchArticleServices.m in Sources */,
+				002DF68D1BABE88A00D71DAD /* FRWebAPIError.m in Sources */,
 				430D7AA81BAAC74A00123D39 /* FRFetchArticleServices.m in Sources */,
 				430D7AB41BAAC83300123D39 /* FRPostDAO.m in Sources */,
 				4312F4061BA82AB3006A350F /* FRCommonUtils.m in Sources */,
