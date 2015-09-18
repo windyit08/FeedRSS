@@ -78,7 +78,7 @@
         
         FRDetailViewController *destViewController = segue.destinationViewController;
         
-        destViewController.Url = @"http://www.dantri.com.vn";
+        destViewController.Url = [favBusinessController getSelectedUrl:indexPath.row];
         
     }
 

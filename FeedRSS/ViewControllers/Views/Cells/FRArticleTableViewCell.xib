@@ -78,6 +78,7 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="pubDateLabel" destination="HxK-Sm-6eu" id="Ueh-Pg-OOM"/>
                 <outlet property="thumbnailImageView" destination="LcZ-cW-N0r" id="uZY-zN-P9J"/>
                 <outlet property="titleLabel" destination="Sd5-sK-QzU" id="2an-qB-QQs"/>
             </connections>
