@@ -1,64 +1,26 @@
 //
-//  FRFavoriteViewController.m
+//  FRHomeViewController.m
 //  FeedRSS
 //
-//  Created by KinhNM1 on 9/16/15.
+//  Created by KinhNM1 on 9/18/15.
 //  Copyright (c) 2015 Training. All rights reserved.
 //
 
-#import "FRFavoriteViewController.h"
-#import "ArticleTableViewCell.h"
+#import "FRHomeViewController.h"
 #import "FRDetailViewController.h"
-#import "FRPost.h"
-#import "FRFavoriteBusinessController.h"
+#import "HomeCell.h"
 
-@interface FRFavoriteViewController ()
-{
-    FRFavoriteBusinessController *favBusinessController;
-}
-
-@property (weak, nonatomic) IBOutlet UITableView *tblFavorite;
+@interface FRHomeViewController ()
 
 @end
 
-@implementation FRFavoriteViewController
-- (NSManagedObjectContext *)managedObjectContext
-{
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
-@synthesize posts;
+@implementation FRHomeViewController
 @synthesize table;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:@"FRPost" inManagedObjectContext:managedObjectContext];
-    [fetchRequest setEntity:entity];
-    NSError *error;
-    self.posts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    self.title = @"Posts";
-//   [self.table registerNib:[UINib nibWithNibName:NSStringFromClass([SimpleTableCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([SimpleTableCell class])];
-    
-    favBusinessController = [[FRFavoriteBusinessController alloc] init];
-    self.tblFavorite.dataSource = favBusinessController.dataSource;
-}
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    __weak __typeof(self)weakSelf = self;
-    [favBusinessController loadAllFavorites:^{
-        [weakSelf.tblFavorite reloadData];
-    } failure:^(NSString *errorMessage) {
-        //Alert
-    }];
+     [self.table registerNib:[UINib nibWithNibName:NSStringFromClass([HomeCell class]) bundle:nil] forCellReuseIdentifier:@"HomeCell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,7 +38,6 @@
 }
 */
 
-
 /**LIST VIEW*/
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -89,18 +50,34 @@
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-        ArticleTableViewCell * cell = nil;
+    
+    
+    
+    
+    {
+        HomeCell * cell = nil;
         
-        static NSString *cellIndentifier = @"ArticleTableViewCell";
-        cell = (ArticleTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIndentifier];
+        static NSString *simpleTableIndentifier = @"HomeCell";
+        
+        
+        cell = (HomeCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIndentifier];
+        
         if(cell == nil){
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ArticleTableViewCell" owner:self options:nil];
+            
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"HOmeCell" owner:self options:nil];
+            
             cell = [nib objectAtIndex:0];
+            
         }
-       
-       [cell configCellWithData:nil];
-       
+        //FRPost *post = [posts objectAtIndex:indexPath.row];
+        //cell.nameLabel.text = post.title;
+        cell.nameLabel.text = @" HOME";
+        //cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
+        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
+
         return cell;
+        
+    }
     
 }
 
@@ -108,7 +85,7 @@
     UIAlertView *messageAlert = [[UIAlertView alloc]
                                  initWithTitle:@"Row Selected" message:@"You've selected a row" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     
-       [self performSegueWithIdentifier:@"ViewFavoriteAction" sender:self];
+    [self performSegueWithIdentifier:@"ViewHomeAction" sender:self];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -127,7 +104,7 @@
     
     NSLog(@"prepareForSegue");
     
-    if ([segue.identifier isEqualToString:@"ViewFavoriteAction"]) {
+    if ([segue.identifier isEqualToString:@"ViewHomeAction"]) {
         
         NSIndexPath *indexPath = [self.table indexPathForSelectedRow];
         
@@ -136,7 +113,7 @@
         destViewController.Url = @"http://www.dantri.com.vn";
         
     }
-
+    
 }
 
 @end

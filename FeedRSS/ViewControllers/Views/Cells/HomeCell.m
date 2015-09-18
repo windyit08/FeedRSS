@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 KinhNM1. All rights reserved.
 //
 
-#import "SimpleTableCell.h"
+#import "HomeCell.h"
 
-@implementation SimpleTableCell
+@implementation HomeCell
 @synthesize nameLabel = _nameLabel;
 
 @synthesize thumbnailImageView = _thumbnailImageView;
@@ -24,4 +24,7 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)onDelete:(id)sender {
+    
+}
 @end
