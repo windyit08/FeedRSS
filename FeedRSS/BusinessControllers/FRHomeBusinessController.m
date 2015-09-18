@@ -6,17 +6,17 @@
 //  Copyright (c) 2015 Training. All rights reserved.
 //
 
-#import "FRITBusinessController.h"
+#import "FRHomeBusinessController.h"
 #import "HomeCell.h"
 
 
-@implementation FRITBusinessController
+@implementation FRHomeBusinessController
 
 -(instancetype)init
 {
     self = [super init];
     if (self) {
-        self.dataSource = [[FRITDataSource alloc] init];
+        self.dataSource = [[FRHomeDataSource alloc] init];
     }
     return self;
 }
@@ -39,7 +39,7 @@
 
 @end
 
-@implementation FRITDataSource
+@implementation FRHomeDataSource
 
 - (NSArray *)newsList {
     return self.news;
@@ -99,5 +99,10 @@
 }
 
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete object from database
+           }
+}
 
 @end
