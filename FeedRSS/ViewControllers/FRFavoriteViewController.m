@@ -7,7 +7,7 @@
 //
 
 #import "FRFavoriteViewController.h"
-#import "SimpleTableCell.h"
+#import "ArticleTableViewCell.h"
 #import "FRDetailViewController.h"
 #import "FRPost.h"
 
@@ -39,7 +39,7 @@
     NSError *error;
     self.posts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     self.title = @"Posts";
-       [self.table registerNib:[UINib nibWithNibName:NSStringFromClass([SimpleTableCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([SimpleTableCell class])];
+       [self.table registerNib:[UINib nibWithNibName:NSStringFromClass([ArticleTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ArticleTableViewCell class])];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,33 +70,18 @@
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    NSLog(@"cellForRowAtIndexPath(index): %ld",indexPath.row);
-    
-    
-   {
-        SimpleTableCell * cell = nil;
+        ArticleTableViewCell * cell = nil;
         
-        static NSString *simpleTableIndentifier = @"SimpleTableCell";
-        NSLog(@"cellForRowAtIndexPath(index): %ld 1",indexPath.row);
-        cell = (SimpleTableCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIndentifier];
-        NSLog(@"cellForRowAtIndexPath(index): %ld 2",indexPath.row);
+        static NSString *cellIndentifier = @"ArticleTableViewCell";
+        cell = (ArticleTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIndentifier];
         if(cell == nil){
-            NSLog(@"cellForRowAtIndexPath(index): %ld 3",indexPath.row);
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SimpleTableCell" owner:self options:nil];
-            NSLog(@"cellForRowAtIndexPath(index): %ld 4",indexPath.row);
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ArticleTableViewCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
-            NSLog(@"cellForRowAtIndexPath(index): %ld 5",indexPath.row);
         }
-       //FRPost *post = [posts objectAtIndex:indexPath.row];
-       //cell.nameLabel.text = post.title;
-        cell.nameLabel.text = @" Favorite";
-        cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
-        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
-        
+       
+       [cell configCellWithData:nil];
+       
         return cell;
-        
-    }
     
 }
 
