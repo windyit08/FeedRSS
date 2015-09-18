@@ -21,7 +21,7 @@
 -(void)requestNewsList:(NSString *)urlNews
                success:(void (^)(FRNewsObject *newsObject))success
                failure:(void (^)(NSString *errorMessage))failure{
-    NSLog(@"[FR][requestNewsList] Start requestNewsList function ưith urlNews: %@", urlNews);
+    NSLog(@"[FR][requestNewsList] Start requestNewsList function with urlNews: %@", urlNews);
     [FRAPIWorker requestAPIAsync:urlNews success:success failure:failure];
     
 }
