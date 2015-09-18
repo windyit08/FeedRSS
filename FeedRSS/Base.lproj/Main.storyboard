@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="voW-hB-VsH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="voW-hB-VsH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -22,7 +22,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I love You" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWn-Jv-K82">
                                 <rect key="frame" x="150" y="290" width="300" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -37,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aau-Rm-uZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1488" y="2507"/>
+            <point key="canvasLocation" x="1500" y="1413"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="N43-Xh-O3g">
@@ -71,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="saA-5E-laT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2372" y="1747"/>
+            <point key="canvasLocation" x="2326" y="2159"/>
         </scene>
         <!--Base View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -88,7 +88,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bp9-Gr-nYf">
                                 <rect key="frame" x="190" y="249" width="300" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -103,13 +103,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1510" y="1033"/>
+            <point key="canvasLocation" x="1500" y="691"/>
         </scene>
         <!--Home-->
         <scene sceneID="aWe-Rt-pQg">
             <objects>
                 <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="JiT-VS-zoV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="Vhx-Ub-7Bq"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="Vhx-Ub-7Bq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="N0d-h5-dna">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -122,7 +122,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bhr-z9-EFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="771" y="1028"/>
+            <point key="canvasLocation" x="653" y="691"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dfx-hi-ly0">
@@ -136,13 +136,13 @@
                     </tabBar>
                     <connections>
                         <segue destination="JiT-VS-zoV" kind="relationship" relationship="viewControllers" id="DoW-g8-zXI"/>
-                        <segue destination="0sa-Z0-7n4" kind="relationship" relationship="viewControllers" id="wna-zj-Fhk"/>
-                        <segue destination="ch1-Rt-l1I" kind="relationship" relationship="viewControllers" id="pci-sS-MDZ"/>
+                        <segue destination="0sa-Z0-7n4" kind="relationship" relationship="viewControllers" id="kPA-JG-5fx"/>
+                        <segue destination="ch1-Rt-l1I" kind="relationship" relationship="viewControllers" id="Ce8-19-VYd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15X-if-Pks" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108" y="1017"/>
+            <point key="canvasLocation" x="-152" y="1413"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Qp4-nF-bFS">
@@ -161,7 +161,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fu3-15-8Xj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="739" y="1784"/>
+            <point key="canvasLocation" x="653" y="2159"/>
         </scene>
         <!--Favorite View Controller-->
         <scene sceneID="MWA-L1-EGq">
@@ -178,7 +178,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Favorites" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qe-v3-zx5">
                                 <rect key="frame" x="252" y="8" width="71" height="70"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2yJ-lw-EHx">
@@ -238,13 +238,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SoL-Zs-H2F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1603" y="1713"/>
+            <point key="canvasLocation" x="1500" y="2159"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Số hóa-->
         <scene sceneID="BLI-Ly-TKy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0sa-Z0-7n4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="topRated" id="fsx-fW-uUC"/>
+                    <tabBarItem key="tabBarItem" title="Số hóa" image="devices" id="fsx-fW-uUC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2sW-8t-MfI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -257,7 +257,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cI5-2n-tZs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="157" y="2588"/>
+            <point key="canvasLocation" x="653" y="1413"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="devices" width="32" height="32"/>
+        <image name="home" width="32" height="32"/>
+    </resources>
 </document>
