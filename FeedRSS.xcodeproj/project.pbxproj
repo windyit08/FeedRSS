@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		002DF6981BABF13800D71DAD /* FRNewsModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF6971BABF13800D71DAD /* FRNewsModelTest.m */; };
 		430D7AA91BAAC74A00123D39 /* FRNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 430D7AA51BAAC74A00123D39 /* FRNewsModel.m */; };
 		430D7AAD1BAAC7BF00123D39 /* FRPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 430D7AAC1BAAC7BF00123D39 /* FRPost.m */; };
 		430D7AB41BAAC83300123D39 /* FRPostDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 430D7AB31BAAC83300123D39 /* FRPostDAO.m */; };
@@ -39,6 +38,7 @@
 		B23357751BABB952008B0FDE /* FRHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23357741BABB952008B0FDE /* FRHomeViewController.m */; };
 		B23357921BABF57B008B0FDE /* FRITViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23357911BABF57B008B0FDE /* FRITViewController.m */; };
 		B23357951BABF6EF008B0FDE /* FRITBusinessController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23357941BABF6EF008B0FDE /* FRITBusinessController.m */; };
+		B233579E1BAC059A008B0FDE /* FRHomeBusinessController.m in Sources */ = {isa = PBXBuildFile; fileRef = B233579D1BAC059A008B0FDE /* FRHomeBusinessController.m */; };
 		B23DF5FF1BA961DB007C67C0 /* FRFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23DF5FE1BA961DB007C67C0 /* FRFavoriteViewController.m */; };
 		B23DF6011BA96495007C67C0 /* husky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B23DF6001BA96495007C67C0 /* husky.jpg */; };
 /* End PBXBuildFile section */
@@ -54,7 +54,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		002DF6971BABF13800D71DAD /* FRNewsModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRNewsModelTest.m; sourceTree = "<group>"; };
 		430D7AA41BAAC74A00123D39 /* FRNewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRNewsModel.h; sourceTree = "<group>"; };
 		430D7AA51BAAC74A00123D39 /* FRNewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRNewsModel.m; sourceTree = "<group>"; };
 		430D7AAB1BAAC7BF00123D39 /* FRPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRPost.h; sourceTree = "<group>"; };
@@ -117,6 +116,8 @@
 		B23357911BABF57B008B0FDE /* FRITViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRITViewController.m; sourceTree = "<group>"; };
 		B23357931BABF6EF008B0FDE /* FRITBusinessController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRITBusinessController.h; sourceTree = "<group>"; };
 		B23357941BABF6EF008B0FDE /* FRITBusinessController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRITBusinessController.m; sourceTree = "<group>"; };
+		B233579C1BAC059A008B0FDE /* FRHomeBusinessController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRHomeBusinessController.h; sourceTree = "<group>"; };
+		B233579D1BAC059A008B0FDE /* FRHomeBusinessController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRHomeBusinessController.m; sourceTree = "<group>"; };
 		B23DF5FD1BA961DB007C67C0 /* FRFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFavoriteViewController.h; sourceTree = "<group>"; };
 		B23DF5FE1BA961DB007C67C0 /* FRFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFavoriteViewController.m; sourceTree = "<group>"; };
 		B23DF6001BA96495007C67C0 /* husky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = husky.jpg; path = Images.xcassets/husky.jpg; sourceTree = "<group>"; };
@@ -226,6 +227,8 @@
 		4312F4031BA82A0D006A350F /* BusinessControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B233579C1BAC059A008B0FDE /* FRHomeBusinessController.h */,
+				B233579D1BAC059A008B0FDE /* FRHomeBusinessController.m */,
 				B23357931BABF6EF008B0FDE /* FRITBusinessController.h */,
 				B23357941BABF6EF008B0FDE /* FRITBusinessController.m */,
 				433C695C1BABB420008C98A4 /* FRFavoriteBusinessController.h */,
@@ -324,7 +327,6 @@
 		43EE86281BA7CF6800C6D395 /* FeedRSSTests */ = {
 			isa = PBXGroup;
 			children = (
-				002DF6971BABF13800D71DAD /* FRNewsModelTest.m */,
 				43EE862B1BA7CF6800C6D395 /* FeedRSSTests.m */,
 				43EE86291BA7CF6800C6D395 /* Supporting Files */,
 			);
@@ -518,6 +520,7 @@
 				B23357921BABF57B008B0FDE /* FRITViewController.m in Sources */,
 				4312F4061BA82AB3006A350F /* FRCommonUtils.m in Sources */,
 				43EE86151BA7CF6800C6D395 /* FeedRSS.xcdatamodeld in Sources */,
+				B233579E1BAC059A008B0FDE /* FRHomeBusinessController.m in Sources */,
 				B23357711BABB943008B0FDE /* HomeCell.m in Sources */,
 				43EE860F1BA7CF6800C6D395 /* main.m in Sources */,
 			);
@@ -527,7 +530,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				002DF6981BABF13800D71DAD /* FRNewsModelTest.m in Sources */,
 				43EE862C1BA7CF6800C6D395 /* FeedRSSTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
