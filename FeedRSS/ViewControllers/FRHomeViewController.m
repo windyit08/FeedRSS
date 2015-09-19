@@ -50,10 +50,6 @@
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    
-    
     {
         HomeCell * cell = nil;
         
