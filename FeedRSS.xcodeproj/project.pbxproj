@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		002DF69A1BAFBF2900D71DAD /* FRNewsModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF6991BAFBF2900D71DAD /* FRNewsModelTest.m */; };
+		002DF69D1BAFD83F00D71DAD /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF69C1BAFD83F00D71DAD /* XMLParser.m */; };
 		430D7AA91BAAC74A00123D39 /* FRNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 430D7AA51BAAC74A00123D39 /* FRNewsModel.m */; };
 		430D7AAD1BAAC7BF00123D39 /* FRPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 430D7AAC1BAAC7BF00123D39 /* FRPost.m */; };
 		430D7AB41BAAC83300123D39 /* FRPostDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 430D7AB31BAAC83300123D39 /* FRPostDAO.m */; };
@@ -56,6 +57,8 @@
 
 /* Begin PBXFileReference section */
 		002DF6991BAFBF2900D71DAD /* FRNewsModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRNewsModelTest.m; sourceTree = "<group>"; };
+		002DF69B1BAFD83F00D71DAD /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLParser.h; path = Common/XMLParser.h; sourceTree = "<group>"; };
+		002DF69C1BAFD83F00D71DAD /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLParser.m; path = Common/XMLParser.m; sourceTree = "<group>"; };
 		430D7AA41BAAC74A00123D39 /* FRNewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRNewsModel.h; sourceTree = "<group>"; };
 		430D7AA51BAAC74A00123D39 /* FRNewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRNewsModel.m; sourceTree = "<group>"; };
 		430D7AAB1BAAC7BF00123D39 /* FRPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRPost.h; sourceTree = "<group>"; };
@@ -154,6 +157,8 @@
 		002DF6581BA974C000D71DAD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				002DF69B1BAFD83F00D71DAD /* XMLParser.h */,
+				002DF69C1BAFD83F00D71DAD /* XMLParser.m */,
 				771B6EDC1BABE93200F3AC3C /* FRFetchArticleServices.h */,
 				771B6EDD1BABE93200F3AC3C /* FRFetchArticleServices.m */,
 				771B6EDE1BABE93200F3AC3C /* FRWebAPIError.h */,
@@ -505,6 +510,7 @@
 				433C695E1BABB420008C98A4 /* FRFavoriteBusinessController.m in Sources */,
 				771B6EE41BABE93E00F3AC3C /* FRNewsObject.m in Sources */,
 				432059F91BA955FD000E3B85 /* FRBaseView.m in Sources */,
+				002DF69D1BAFD83F00D71DAD /* XMLParser.m in Sources */,
 				430D7AA91BAAC74A00123D39 /* FRNewsModel.m in Sources */,
 				B23357751BABB952008B0FDE /* FRHomeViewController.m in Sources */,
 				432059FC1BA9562A000E3B85 /* FRBaseCell.m in Sources */,

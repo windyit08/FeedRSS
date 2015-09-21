@@ -25,13 +25,14 @@ NSString * const RESPONSE_ERROR_CONNECTION_FAILED = @"Connection failed!";
     
     AFHTTPRequestOperation* operation = [manager HTTPRequestOperationWithRequest:request
                                                                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//                                                                             NSLog(@"[FR][startRequest] Success with status %i ", operation.response.statusCode);
                                                                              NSLog(@"[FR][startRequest] - RESPONSE XML: %@", responseObject);
-                                                                             if (responseObject) {
-                                                                                 NSInteger returnedCode = 0;
-                                                                                 if ([responseObject objectForKey:APIKEY_RETURNCODE]) {
-                                                                                     returnedCode = [[responseObject objectForKey:APIKEY_RETURNCODE]integerValue];
-                                                                                 }
-                                                                             }
+//                                                                             if (responseObject) {
+//                                                                                 NSInteger returnedCode = 0;
+//                                                                                 if ([responseObject objectForKey:APIKEY_RETURNCODE]) {
+//                                                                                     returnedCode = [[responseObject objectForKey:APIKEY_RETURNCODE]integerValue];
+//                                                                                 }
+//                                                                             }
                                                                              success(responseObject);
                                                                          }
                                                                          failure:^(AFHTTPRequestOperation *operation, NSError *error) {

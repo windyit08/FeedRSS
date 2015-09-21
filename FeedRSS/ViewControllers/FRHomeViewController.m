@@ -9,23 +9,43 @@
 #import "FRHomeViewController.h"
 #import "FRDetailViewController.h"
 #import "HomeCell.h"
+#import "FRNewsObject.h"
+#import "FRHomeBusinessController.h"
 
 @interface FRHomeViewController ()
 
 @end
 
-@implementation FRHomeViewController
+@implementation FRHomeViewController{
+    
+    FRHomeBusinessController *homeBusinessController;
+    
+}
 @synthesize table;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-     [self.table registerNib:[UINib nibWithNibName:NSStringFromClass([HomeCell class]) bundle:nil] forCellReuseIdentifier:@"HomeCell"];
+    self.title = @"Home";
+    
+    homeBusinessController = [[FRHomeBusinessController alloc] init];
+    self.table.dataSource = homeBusinessController.dataSource;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    __weak __typeof(self)weakSelf = self;
+    [homeBusinessController loadAllNews:^(){
+        [weakSelf.table reloadData];
+    } failure:^(NSString *errorMessage) {
+        //Alert
+    }];
 }
 
 /*
@@ -52,34 +72,25 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     {
         HomeCell * cell = nil;
-        
         static NSString *simpleTableIndentifier = @"HomeCell";
-        
-        
         cell = (HomeCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIndentifier];
-        
         if(cell == nil){
-            
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"HOmeCell" owner:self options:nil];
-            
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"HomeCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
-            
         }
-        //FRPost *post = [posts objectAtIndex:indexPath.row];
-        //cell.nameLabel.text = post.title;
-        cell.nameLabel.text = @" HOME";
+//        cell.nameLabel.text = newsObj.title;
         //cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
-        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
+//        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
 
         return cell;
-        
     }
     
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIAlertView *messageAlert = [[UIAlertView alloc]
-                                 initWithTitle:@"Row Selected" message:@"You've selected a row" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+// ThanhDM disable
+//    UIAlertView *messageAlert = [[UIAlertView alloc]
+//                                 initWithTitle:@"Row Selected" message:@"You've selected a row" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     
     [self performSegueWithIdentifier:@"ViewHomeAction" sender:self];
 }
@@ -97,19 +108,13 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    
     NSLog(@"prepareForSegue");
-    
     if ([segue.identifier isEqualToString:@"ViewHomeAction"]) {
-        
         NSIndexPath *indexPath = [self.table indexPathForSelectedRow];
-        
+        FRNewsObject *newObj = [homeBusinessController.dataSource.news objectAtIndex:indexPath.row];
         FRDetailViewController *destViewController = segue.destinationViewController;
-        
-        destViewController.Url = @"http://www.dantri.com.vn";
-        
+        destViewController.Url = newObj.link;
     }
-    
 }
 
 @end

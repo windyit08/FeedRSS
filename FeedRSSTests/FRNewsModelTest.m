@@ -41,9 +41,6 @@
             FRNewsObject *frNew = [arrr objectAtIndex:i];
             XCTAssertNotNil(frNew); //Need assert not null
             XCTAssertTrue([frNew isKindOfClass:[FRNewsObject class]]); //Need assert item is in correct type
-            
-            //Should print for debuging
-#define PRINT_DETAIL_FOR_DEBUG 1
 
             NSLog(@"testFetchTopNews: (title %d) %@", i, frNew.title);
             NSLog(@"testFetchTopNews: (pubDate %d) %@", i, frNew.pubDate);
@@ -57,9 +54,6 @@
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
 }
 
 @end
