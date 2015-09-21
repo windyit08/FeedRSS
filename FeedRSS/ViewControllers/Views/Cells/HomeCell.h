@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btn;
 - (IBAction)onDelete:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
