@@ -89,11 +89,15 @@
         }
         cell.nameLabel.text = newsObj.title;
         cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
-        
+        [cell.btn addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
         
     }
     
+}
+
+- (void)buttonTapped:(id)sender {
+    NSLog(@"buttonTapped");
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
