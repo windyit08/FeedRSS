@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FRNewsObject.h"
+@interface XMLParser : NSObject 
 
-@interface XMLParser : NSObject
-
+-(void)parserXMLFromData:(NSData *)data;
 @end
