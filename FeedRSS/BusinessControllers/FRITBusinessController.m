@@ -8,7 +8,8 @@
 
 #import "FRITBusinessController.h"
 #import "HomeCell.h"
-
+#import "FRFetchArticleServices.h"
+#import "FRNewsObject.h"
 
 @implementation FRITBusinessController
 
@@ -46,13 +47,15 @@
 }
 
 - (void)loadAllNews:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure {
-    
 
-    //self.news =
-    
-
-    
-    success();
+    self.frFetchArticleServices = [[FRFetchArticleServices alloc]init];
+    NSString *url = @"http://vnexpress.net/rss/so-hoa.rss";
+    [ self.frFetchArticleServices getListNewIt:url success:^(NSMutableArray *listItem) {
+        self.news = listItem;
+        success();
+    } failure:^(NSString *errorMess) {
+        NSLog(@"fail call api");
+    }];
 }
 
 #pragma mark - UITableViewDataSource methods
@@ -77,9 +80,10 @@
             cell = [nib objectAtIndex:0];
             
         }
+        FRNewsObject *item = [self.news objectAtIndex:indexPath.row];
         //FRPost *post = [posts objectAtIndex:indexPath.row];
         //cell.nameLabel.text = post.title;
-        cell.nameLabel.text = @" IT";
+        cell.nameLabel.text = item.title;
         //cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
         cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
         

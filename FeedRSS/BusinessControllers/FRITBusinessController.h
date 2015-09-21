@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class FRITDataSource;
-@class FRPostDAO;
+@class FRFetchArticleServices;
 
 @interface FRITBusinessController : NSObject
 
@@ -22,7 +22,7 @@
 @interface FRITDataSource : NSObject<UITableViewDataSource>
 
 @property (nonatomic, strong) NSMutableArray *news;
-@property (retain, nonatomic) FRPostDAO *postDAO;
+@property (retain, nonatomic) FRFetchArticleServices *frFetchArticleServices;
 
 - (NSArray *)newsList;
 -(void)loadAllNews:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure;
