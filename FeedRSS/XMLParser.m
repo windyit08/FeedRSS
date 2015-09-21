@@ -41,12 +41,14 @@ static FRNewsObject *sharedInstance = nil;
     return self;
 }
 
--(void)parserXMLFromData:(NSData *)data{
+-(NSArray *)parserXMLFromData:(NSData *)data{
     NSXMLParser *xmlParser = (NSXMLParser *)data;
     if(xmlParser!=nil){
         [xmlParser setDelegate:self];
         [xmlParser parse];
     }
+    NSArray *arr = [_currentParseBatch copy];
+    return arr;
 }
 
 -(void)parserDidStartDocument:(NSXMLParser *)parser{
