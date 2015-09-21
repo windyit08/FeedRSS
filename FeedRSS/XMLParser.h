@@ -10,5 +10,5 @@
 #import "FRNewsObject.h"
 @interface XMLParser : NSObject 
 
--(void)parserXMLFromData:(NSData *)data;
+-(NSArray *)parserXMLFromData:(NSData *)data;
 @end
