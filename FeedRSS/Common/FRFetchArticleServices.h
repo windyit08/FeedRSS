@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface FRFetchArticleServices : NSObject
-
+-(void)getListNewIt:(NSString *)urlNews
+               success:(void (^)(NSMutableArray *listItem))success
+               failure:(void (^)(NSString *errorMess))failure;
 @end

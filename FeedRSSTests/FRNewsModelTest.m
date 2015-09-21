@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "FRNewsModel.h"
+#import "XMLParser.h"
 
 @interface FRNewsModelTest : XCTestCase
 
@@ -34,6 +35,20 @@
         //Handle object here
         NSLog(@"[FR] Success to get rss");
         NSLog(@"FRNewsModelTest: sucess here");
+         XMLParser *parser = [[XMLParser alloc] init];
+        NSArray *arrr =[[parser parserXMLFromData:(NSData *)newsObject] copy];
+        for(int i = 0; i < arrr.count; i++){
+            FRNewsObject *frNew = [arrr objectAtIndex:i];
+            XCTAssertNotNil(frNew); //Need assert not null
+            XCTAssertTrue([frNew isKindOfClass:[FRNewsObject class]]); //Need assert item is in correct type
+            
+            //Should print for debuging
+#define PRINT_DETAIL_FOR_DEBUG 1
+
+            NSLog(@"testFetchTopNews: (title %d) %@", i, frNew.title);
+            NSLog(@"testFetchTopNews: (pubDate %d) %@", i, frNew.pubDate);
+             NSLog(@"testFetchTopNews: (pubDate %d) %@", i, frNew.description);
+        }
     } failure:^(NSString *errorMess) {
         NSLog(@"[FR] Fail to get rss");
         NSLog(@"FRNewsModelTest: fail >> %@", errorMess);
