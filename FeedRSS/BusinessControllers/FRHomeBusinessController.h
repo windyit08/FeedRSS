@@ -13,16 +13,20 @@
 
 @interface FRHomeBusinessController : NSObject
 
+typedef void(^SuccessBlock)(id data);
+typedef void(^FailureBlock)(NSInteger errorCode, NSString *errorMsg);
 @property (nonatomic, strong) NSArray *newsArray;
 @property (nonatomic, strong) FRHomeDataSource *dataSource;
-- (void)loadAllNews:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure;
+- (void)loadAllNews:(SuccessBlock)success failure:(FailureBlock)failure;
 
 @end
 
 @interface FRHomeDataSource : NSObject<UITableViewDataSource>
 
+typedef void(^SuccessBlock)(id data);
+typedef void(^FailureBlock)(NSInteger errorCode, NSString *errorMsg);
 @property (nonatomic, strong) NSMutableArray *news;
 @property (nonatomic, strong) NSArray *newsList;
--(void)loadAllNews:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure;
+-(void)loadAllNews:(SuccessBlock)success failure:(FailureBlock)failure;
 
 @end

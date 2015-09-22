@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "FRNewsModel.h"
+#import "FRNewsServices.h"
 #import "XMLParser.h"
 
 @interface FRNewsModelTest : XCTestCase
@@ -29,9 +29,9 @@
 - (void)testExample {
     // This is an example of a functional test case.
     XCTAssert(YES, @"Pass");
-    FRNewsModel *newsModel = [[FRNewsModel alloc] init];
+    FRNewsServices *newsServices = [[FRNewsServices alloc] init];
     NSLog(@"[FR] Start test example");
-    [newsModel requestNewsList:@"http://vnexpress.net/rss/tin-moi-nhat.rss" success:^(FRNewsObject *newsObject) {
+    [newsServices requestNewsList:@"http://vnexpress.net/rss/tin-moi-nhat.rss" success:^(FRNewsObject *newsObject) {
         //Handle object here
         NSLog(@"[FR] Success to get rss");
         NSLog(@"FRNewsModelTest: sucess here");
@@ -46,9 +46,9 @@
             NSLog(@"testFetchTopNews: (pubDate %d) %@", i, frNew.pubDate);
              NSLog(@"testFetchTopNews: (pubDate %d) %@", i, frNew.description);
         }
-    } failure:^(NSString *errorMess) {
+    } failure:^(NSInteger errorCode, NSString *errorMsg) {
         NSLog(@"[FR] Fail to get rss");
-        NSLog(@"FRNewsModelTest: fail >> %@", errorMess);
+        NSLog(@"FRNewsModelTest: fail >> %@", errorMsg);
     }];
 }
 
