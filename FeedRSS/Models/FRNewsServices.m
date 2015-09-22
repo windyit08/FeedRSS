@@ -21,12 +21,6 @@
                                    header:nil
                                 parameter:nil
                                   success:^(id data) {
-//                                      NSXMLParser *xmlParser = (NSXMLParser *)data;
-//                                      if(xmlParser!=nil){
-//                                          [xmlParser setDelegate:self];
-//                                          [xmlParser parse];
-//                                      }
-//                                      NSArray *arr = [_currentParseBatch copy];
                                       success(data);
                                   }
                                   failure:failure];

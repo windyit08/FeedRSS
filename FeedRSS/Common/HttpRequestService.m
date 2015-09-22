@@ -15,18 +15,6 @@
                 parameter:(NSDictionary *)parameters
                   success:(RequestSuccessBlock)success
                   failure:(RequestFailureBlock)failure{
-    //Check internet and host
-    NSInteger connStatus = [CommonUtil checkNetworkConnection];
-    if(connStatus != kInternetConnectionOK){
-        NSString *errorMessage = nil;
-        if(connStatus == kInternetConnectionErrorHost){
-            errorMessage = @"Error host";
-        }
-        else errorMessage = @"Error internet";
-        failure(-3, errorMessage);
-        return;
-    }
-    
     //Create post request
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:stringURL]];
     [request setHTTPMethod:@"POST"];
@@ -61,19 +49,6 @@
                parameter:(NSDictionary *)parameters
                  success:(RequestSuccessBlock)success
                  failure:(RequestFailureBlock)failure{
-    
-    //Check internet and host
-    NSInteger connStatus = [CommonUtil checkNetworkConnection];
-    if(connStatus != kInternetConnectionOK){
-        NSString *errorMessage = nil;
-        if(connStatus == kInternetConnectionErrorHost){
-            errorMessage = @"Error host";
-        }
-        else errorMessage = @"Error internet";
-        failure(-3, errorMessage);
-        return;
-    }
-    
     //Create get request
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:stringURL]];
     [request setHTTPMethod:@"GET"];
@@ -91,9 +66,24 @@
     [manager.operationQueue cancelAllOperations];
 }
 
++(void)checkNetwork:(RequestFailureBlock)failure{
+    //Check internet and host
+    NSInteger connStatus = [CommonUtil checkNetworkConnection];
+    if(connStatus != kInternetConnectionOK){
+        NSString *errorMessage = nil;
+        if(connStatus == kInternetConnectionErrorHost){
+            errorMessage = @"Error host";
+        }
+        else errorMessage = @"Error internet";
+        failure(-3, errorMessage);
+        return;
+    }
+}
+
 +(void)addRequestToQueue:(NSURLRequest *)request
                  success:(RequestSuccessBlock)success
                  failure:(RequestFailureBlock)failure{
+    [self checkNetwork:failure];
     HttpRequestOperationManager *manager = [HttpRequestOperationManager sharedInstance];
     
     //Set contentype for RSS

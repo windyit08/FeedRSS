@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		002DF69A1BAFBF2900D71DAD /* FRNewsModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF6991BAFBF2900D71DAD /* FRNewsModelTest.m */; };
 		002DF69D1BAFD83F00D71DAD /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF69C1BAFD83F00D71DAD /* XMLParser.m */; };
 		002DF6A51BB0FAC000D71DAD /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF6A01BB0FAC000D71DAD /* CommonUtil.m */; };
 		002DF6A61BB0FAC000D71DAD /* HttpRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF6A21BB0FAC000D71DAD /* HttpRequestOperationManager.m */; };
 		002DF6A71BB0FAC000D71DAD /* HttpRequestService.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF6A41BB0FAC000D71DAD /* HttpRequestService.m */; };
+		002DF6A91BB1402100D71DAD /* FRNewsServicesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DF6A81BB1402100D71DAD /* FRNewsServicesTest.m */; };
 		430D7AA91BAAC74A00123D39 /* FRNewsServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 430D7AA51BAAC74A00123D39 /* FRNewsServices.m */; };
 		430D7AAD1BAAC7BF00123D39 /* FRPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 430D7AAC1BAAC7BF00123D39 /* FRPost.m */; };
 		430D7AB41BAAC83300123D39 /* FRPostDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 430D7AB31BAAC83300123D39 /* FRPostDAO.m */; };
@@ -56,7 +56,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		002DF6991BAFBF2900D71DAD /* FRNewsModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRNewsModelTest.m; sourceTree = "<group>"; };
 		002DF69B1BAFD83F00D71DAD /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLParser.h; path = Common/XMLParser.h; sourceTree = "<group>"; };
 		002DF69C1BAFD83F00D71DAD /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLParser.m; path = Common/XMLParser.m; sourceTree = "<group>"; };
 		002DF69E1BB0FAC000D71DAD /* CommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonDefine.h; path = Common/CommonDefine.h; sourceTree = "<group>"; };
@@ -66,6 +65,7 @@
 		002DF6A21BB0FAC000D71DAD /* HttpRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpRequestOperationManager.m; path = Common/HttpRequestOperationManager.m; sourceTree = "<group>"; };
 		002DF6A31BB0FAC000D71DAD /* HttpRequestService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpRequestService.h; path = Common/HttpRequestService.h; sourceTree = "<group>"; };
 		002DF6A41BB0FAC000D71DAD /* HttpRequestService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpRequestService.m; path = Common/HttpRequestService.m; sourceTree = "<group>"; };
+		002DF6A81BB1402100D71DAD /* FRNewsServicesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRNewsServicesTest.m; sourceTree = "<group>"; };
 		430D7AA41BAAC74A00123D39 /* FRNewsServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRNewsServices.h; sourceTree = "<group>"; };
 		430D7AA51BAAC74A00123D39 /* FRNewsServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRNewsServices.m; sourceTree = "<group>"; };
 		430D7AAB1BAAC7BF00123D39 /* FRPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRPost.h; sourceTree = "<group>"; };
@@ -334,7 +334,7 @@
 		43EE86281BA7CF6800C6D395 /* FeedRSSTests */ = {
 			isa = PBXGroup;
 			children = (
-				002DF6991BAFBF2900D71DAD /* FRNewsModelTest.m */,
+				002DF6A81BB1402100D71DAD /* FRNewsServicesTest.m */,
 				43EE862B1BA7CF6800C6D395 /* FeedRSSTests.m */,
 				43EE86291BA7CF6800C6D395 /* Supporting Files */,
 			);
@@ -539,7 +539,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				002DF69A1BAFBF2900D71DAD /* FRNewsModelTest.m in Sources */,
+				002DF6A91BB1402100D71DAD /* FRNewsServicesTest.m in Sources */,
 				43EE862C1BA7CF6800C6D395 /* FeedRSSTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
