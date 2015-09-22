@@ -10,6 +10,7 @@
 #import "HomeCell.h"
 #import "FRFetchArticleServices.h"
 #import "FRNewsObject.h"
+#import "FRArticleTableViewCell.h"
 
 @implementation FRITBusinessController
 
@@ -81,11 +82,17 @@
             
         }
         FRNewsObject *item = [self.news objectAtIndex:indexPath.row];
-        //FRPost *post = [posts objectAtIndex:indexPath.row];
-        //cell.nameLabel.text = post.title;
         cell.nameLabel.text = item.title;
+        cell.dateLabel.text = item.pubDate;
         //cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
-        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
+//        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            UIImage * img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.urlImage]]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                FRArticleTableViewCell * cell = (FRArticleTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+                cell.thumbnailImageView.image = img;
+            });
+        });
          [cell.btn addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
         
@@ -98,8 +105,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //return self.news.count;
-    return 100;
+    return self.news.count;
+//    return 100;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
