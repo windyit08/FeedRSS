@@ -13,6 +13,7 @@
 #import "FRNewsObject.h"
 #import "FRHomeBusinessController.h"
 #import "FRHomeViewController.h"
+#import "FRArticleTableViewCell.h"
 
 #pragma mark - FRHomeBusinessController
 
@@ -81,12 +82,16 @@
             cell = [nib objectAtIndex:0];
         }
         cell.nameLabel.text = newsObj.title;
-        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            UIImage * img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:newsObj.urlImage]]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                FRArticleTableViewCell * cell = (FRArticleTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+                cell.thumbnailImageView.image = img;
+            });
+        });
         [cell.btn addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
-        
     }
-    
 }
 
 - (void)buttonTapped:(id)sender {
