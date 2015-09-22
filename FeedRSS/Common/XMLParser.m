@@ -107,6 +107,7 @@ static FRNewsObject *sharedInstance = nil;
         _currentParseObject.title = _currentParsedCharacterData;
     }else if([elementName isEqualToString:@"description"]){
         _currentParseObject.description = _currentParsedCharacterData;
+        [self parser:parser foundCDATA:[_currentParsedCharacterData dataUsingEncoding:NSUTF8StringEncoding]];
     }else if([elementName isEqualToString:@"pubDate"]){
         _currentParseObject.pubDate = _currentParsedCharacterData;
     }else if([elementName isEqualToString:@"link"]){
@@ -125,6 +126,32 @@ static FRNewsObject *sharedInstance = nil;
 }
 -(void)parser:(NSXMLParser *)parser foundCDATA:(NSData *)CDATABlock
 {
+    NSString *someString = [[NSString alloc] initWithData:CDATABlock encoding:NSUTF8StringEncoding];
     
+    [_currentParsedCharacterData appendString:someString];
+    
+    NSString *imageURLString = [self getUrlImages:someString];
+    NSURL *imageURL = [NSURL URLWithString:imageURLString];
+    _currentParseObject.urlImage = [imageURL absoluteString];;
+
+}
+-(NSString *) getUrlImages:(NSString *)url{
+    NSScanner *theScanner;
+    NSString *imageURL = nil;
+    
+    theScanner = [NSScanner scannerWithString: url];
+    
+    // find start of tag
+    [theScanner scanUpToString: @"<img" intoString: NULL];
+    if ([theScanner isAtEnd] == NO) {
+        
+        [theScanner scanUpToString: @"src=\"" intoString: NULL];
+        NSInteger newLoc2 = [theScanner scanLocation] + 5;
+        [theScanner setScanLocation: newLoc2];
+        
+        // find end of tag
+        [theScanner scanUpToString: @"\"" intoString: &imageURL];
+    }
+    return imageURL;
 }
 @end
