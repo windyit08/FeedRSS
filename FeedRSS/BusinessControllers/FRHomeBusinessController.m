@@ -8,18 +8,16 @@
 
 #import "FRHomeBusinessController.h"
 #import "HomeCell.h"
-#import "FRNewsModel.h"
+#import "FRNewsServices.h"
 #import "XMLParser.h"
 #import "FRNewsObject.h"
 #import "FRHomeBusinessController.h"
 #import "FRHomeViewController.h"
 
-#define homeNews @"http://vnexpress.net/rss/tin-moi-nhat.rss"
-
 #pragma mark - FRHomeBusinessController
 
-@implementation FRHomeBusinessController{
-}
+
+@implementation FRHomeBusinessController{}
 
 -(instancetype)init
 {
@@ -32,7 +30,7 @@
     return self;
 }
 
--(void)loadAllNews:(void (^)(void))success failure:(void (^)(NSString *errorMessage))failure {
+-(void)loadAllNews:(SuccessBlock)success failure:(FailureBlock)failure {
     
     [self.dataSource loadAllNews:success failure:failure];
     
@@ -42,33 +40,28 @@
 
 #pragma mark - FRHomeDataSource
 
-@implementation FRHomeDataSource
+@implementation FRHomeDataSource{
+    NSString *homeNews;
+}
 
 - (NSArray *)newsList {
     return self.news;
 }
 
-- (void)loadAllNews:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure {
-    FRNewsModel *newsModel = [[FRNewsModel alloc] init];
-    [newsModel requestNewsList:homeNews success:^(FRNewsObject *newsObject) {
+- (void)loadAllNews:(SuccessBlock)success failure:(FailureBlock)failure {
+//    homeNews = [NSString stringWithFormat:@"%@%@", BASE_URL,HOME_NEWS_CONTENT];
+    homeNews= @"http://vnexpress.net/rss/tin-moi-nhat.rss";
+    FRNewsServices *newsServices = [[FRNewsServices alloc] init];
+    [newsServices requestNewsList:homeNews success:^(id data) {
         NSLog(@"[FR] Success to get rss");
         NSLog(@"FRNewsModelTest: sucess here");
         XMLParser *parser = [[XMLParser alloc] init];
-        self.news = [[parser parserXMLFromData:(NSData *)newsObject] copy];
-//        for(int i = 0; i < newsArray.count; i++){
-//            FRNewsObject *frNew = [newsArray objectAtIndex:i];
-//            if(frNew != nil){
-//                NSLog(@"---------------News %i---------------", i);
-//                NSLog(@"testFethTopNews: (title %d) %@", i, frNew.title);
-//                NSLog(@"testFetchTopNews: (pubDate %d) %@", i, frNew.pubDate);
-//                NSLog(@"testFetchTopNews: (pubDate %d) %@", i, frNew.description);
-//            }
-//        }
-        success();
-    } failure:^(NSString *errorMess) {
+        self.news = [[parser parserXMLFromData:(NSData *)data] copy];
+        success(self.news);
+    } failure:^(NSInteger errorCode, NSString *errorMsg)  {
         NSLog(@"[FR] Fail to get rss");
-        NSLog(@"FRNewsModelTest: fail >> %@", errorMess);
-        failure(errorMess);
+        NSLog(@"FRNewsModelTest: fail >> %@", errorMsg);
+        failure(errorCode, errorMsg);
     }];
 }
 
