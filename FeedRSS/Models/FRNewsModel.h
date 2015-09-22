@@ -1,5 +1,5 @@
 //
-//  FRNewsServices.h
+//  FRNewsModel.h
 //  FeedRSS
 //
 //  Created by ThanhDM on 9/16/15.
@@ -9,11 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "FRNewsObject.h"
 #import "FRWebAPIError.h"
-#import "HttpRequestService.h"
 
-@interface FRNewsServices : NSObject
+@interface FRNewsModel : NSObject
 
 -(void)requestNewsList:(NSString *)urlNews
-               success:(RequestSuccessBlock)success
-               failure:(RequestFailureBlock)failure;
+               success:(void (^)(FRNewsObject *newsObject))success
+               failure:(void (^)(NSString *errorMess))failure;
 @end
