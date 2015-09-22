@@ -50,8 +50,7 @@
 }
 
 - (void)loadAllNews:(SuccessBlock)success failure:(FailureBlock)failure {
-//    homeNews = [NSString stringWithFormat:@"%@%@", BASE_URL,HOME_NEWS_CONTENT];
-    homeNews= @"http://vnexpress.net/rss/tin-moi-nhat.rss";
+    homeNews = [NSString stringWithFormat:@"%@%@", BASE_URL,HOME_NEWS_CONTENT];
     FRNewsServices *newsServices = [[FRNewsServices alloc] init];
     [newsServices requestNewsList:homeNews success:^(id data) {
         NSLog(@"[FR] Success to get rss");
