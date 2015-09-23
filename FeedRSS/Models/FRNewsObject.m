@@ -16,7 +16,6 @@
 @synthesize link = _link;
 @synthesize guid = _guid;
 @synthesize slash = _slash;
-@synthesize urlImage = _urlImage;
 
 
 -(void) dealloc{
@@ -27,7 +26,6 @@
     self.link = nil;
     self.guid = nil;
     self.slash = nil;
-    self.urlImage =nil;
     
 //    [super dealloc];
     
