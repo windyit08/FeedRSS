@@ -110,7 +110,7 @@ NSMutableArray* listFav;
     FRNewsObject *item = [self.news objectAtIndex:cell.tag];
     if([[FRPostDAO sharedInstance] addFavoritePost:item.guid withTile:item.title withText:item.description withThumb:nil] == YES){
         listFav = [[FRPostDAO sharedInstance] listAllFavorite];
-        cell.enabled = NO;
+        //cell.enabled = NO;
     }
     
 

@@ -84,7 +84,7 @@
     
     for(FRPost* item in list){
 
-        [ret addObject:item.title];
+        [ret addObject:item.guid];
     }
     return ret;
     
