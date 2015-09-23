@@ -106,7 +106,7 @@ static FRNewsObject *sharedInstance = nil;
     }else if([elementName isEqualToString:@"title"]){
         _currentParseObject.title = _currentParsedCharacterData;
     }else if([elementName isEqualToString:@"description"]){
-//        _currentParseObject.description = _currentParsedCharacterData;
+        _currentParseObject.description = _currentParsedCharacterData;
         [self parser:parser foundCDATA:[_currentParsedCharacterData dataUsingEncoding:NSUTF8StringEncoding]];
     }else if([elementName isEqualToString:@"pubDate"]){
         _currentParseObject.pubDate = _currentParsedCharacterData;
