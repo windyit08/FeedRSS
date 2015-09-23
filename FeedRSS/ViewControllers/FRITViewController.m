@@ -10,6 +10,8 @@
 #import "FRDetailViewController.h"
 #import "FRITBusinessController.h"
 #import "HomeCell.h"
+#import "FRNewsObject.h"
+#import "FRITBusinessController.h"
 
 @interface FRITViewController ()
 {
@@ -24,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title =@"IT";
     
     [self.table registerNib:[UINib nibWithNibName:NSStringFromClass([HomeCell class]) bundle:nil] forCellReuseIdentifier:@"HomeCell"];
     businessController = [[FRITBusinessController alloc] init];
@@ -94,10 +97,9 @@
     if ([segue.identifier isEqualToString:@"ViewITAction"]) {
         
         NSIndexPath *indexPath = [self.table indexPathForSelectedRow];
-        
+        FRNewsObject *newObj = [businessController.dataSource.news objectAtIndex:indexPath.row];
         FRDetailViewController *destViewController = segue.destinationViewController;
-        
-        destViewController.Url = @"http://www.dantri.com.vn";
+        destViewController.Url = newObj.link;
         
     }
     

@@ -41,17 +41,20 @@
 
 @end
 
-@implementation FRITDataSource
+#pragma mark - FRHomeDataSource
+
+@implementation FRITDataSource{
+    NSString *IT_NEWS_URL;
+}
 
 - (NSArray *)newsList {
     return self.news;
 }
 
 - (void)loadAllNews:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure {
-
+    IT_NEWS_URL =[NSString stringWithFormat:@"%@%@", BASE_URL,IT_NEWS_CONTENT];
     self.frFetchArticleServices = [[FRFetchArticleServices alloc]init];
-    NSString *url = @"http://vnexpress.net/rss/so-hoa.rss";
-    [ self.frFetchArticleServices getListNewIt:url success:^(NSMutableArray *listItem) {
+    [ self.frFetchArticleServices getListNewIt:IT_NEWS_URL success:^(NSMutableArray *listItem) {
         self.news = listItem;
         success();
     } failure:^(NSString *errorMess) {
