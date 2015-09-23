@@ -53,6 +53,7 @@
 }
 
 
+
 - (NSArray *)newsList {
     return self.news;
 }
@@ -60,6 +61,7 @@
 - (void)loadAllNews:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure {
 
     listFav = [[FRPostDAO sharedInstance] listAllGuiOfFavorite];
+    NSLog(@"loadAllNews=>listFav=%lu",[listFav count]);
 
     IT_NEWS_URL =[NSString stringWithFormat:@"%@%@", BASE_URL,IT_NEWS_CONTENT];
     self.frFetchArticleServices = [[FRFetchArticleServices alloc]init];
@@ -109,10 +111,13 @@
             });
         });
 //        cell.post = indexPath.row;
-        if([listFav containsObject:[item guid]]){
-            cell.btn.enabled = NO;
+        NSString * _gui = [item guid];
+        if ([FRITDataSource isFavorite:_gui withList:listFav]) {
+              cell.btn.enabled = NO;
+        }else{
+            cell.btn.enabled = YES;
         }
-
+        
          [cell.btn addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         cell.btn.tag = indexPath.row;
         return cell;
@@ -121,16 +126,24 @@
     
 }
 
++(BOOL) isFavorite:(NSString*) gui withList:(NSMutableArray*) list{
+    for(NSString* ii in list){
+        if([gui isEqualToString: ii]){
+            return YES;
+        }
+    }
+    return NO;
+}
+
 - (void)buttonTapped:(id)sender {
     UIButton * cell = sender;
     FRNewsObject *item = [self.news objectAtIndex:cell.tag];
+    NSLog(@"buttonTapped=>listFav(1)=%lu",[listFav count]);
     if([[FRPostDAO sharedInstance] addFavoritePost:item.guid withTile:item.title withText:item.description withThumb:nil] == YES){
         listFav = [[FRPostDAO sharedInstance] listAllFavorite];
+        NSLog(@"buttonTapped=>listFav(2)=%lu",[listFav count]);
         cell.enabled = NO;
     }
-    
-
-    
     NSLog(@"buttonTapped");
 }
 
