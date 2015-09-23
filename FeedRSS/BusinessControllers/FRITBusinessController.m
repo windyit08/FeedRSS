@@ -67,6 +67,10 @@
     self.frFetchArticleServices = [[FRFetchArticleServices alloc]init];
     [ self.frFetchArticleServices getListNewIt:IT_NEWS_URL success:^(NSMutableArray *listItem) {
         self.news = listItem;
+        for(FRNewsObject* item in self.news){
+            item.isFavorite = [FRITDataSource isFavorite:item.guid withList:listFav];
+           
+        }
         success();
     } failure:^(NSString *errorMess) {
         NSLog(@"fail call api");
@@ -110,9 +114,8 @@
                 cell.thumbnailImageView.image = img;
             });
         });
-//        cell.post = indexPath.row;
-        NSString * _gui = [item guid];
-        if ([FRITDataSource isFavorite:_gui withList:listFav]) {
+
+        if (item.isFavorite) {
               cell.btn.enabled = NO;
         }else{
             cell.btn.enabled = YES;

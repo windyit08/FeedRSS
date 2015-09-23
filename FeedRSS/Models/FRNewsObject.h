@@ -17,5 +17,7 @@
 @property(nonatomic, copy)NSString* guid;
 @property(nonatomic, copy)NSString* slash;
 @property(nonatomic, copy)NSString* urlImage;
+@property(nonatomic) bool isFavorite;
+
 
 @end

@@ -17,6 +17,7 @@
 @synthesize guid = _guid;
 @synthesize slash = _slash;
 @synthesize urlImage =_urlImage;
+@synthesize isFavorite =_isFavorite;
 
 
 -(void) dealloc{
@@ -28,7 +29,7 @@
     self.guid = nil;
     self.slash = nil;
     self.urlImage = nil;
-    
+    self.isFavorite = nil;
 //    [super dealloc];
     
 }
