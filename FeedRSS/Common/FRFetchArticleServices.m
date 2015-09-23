@@ -8,18 +8,18 @@
 
 #import "FRFetchArticleServices.h"
 #import "FRNewsObject.h"
-#import "FRNewsModel.h"
+#import "FRNewsServices.h"
 #import "XMLParser.h"
 @implementation FRFetchArticleServices
 
 - (void)getListNewIt:(NSString *)urlNews success:(void (^)(NSMutableArray *))success failure:(void (^)(NSString *))failure {
-    FRNewsModel *newsModel = [[FRNewsModel alloc] init];
+    FRNewsServices *newsModel = [[FRNewsServices alloc] init];
     
     [newsModel requestNewsList:urlNews success:^(FRNewsObject *newsObject) {
         XMLParser *parser = [[XMLParser alloc]init];
         NSMutableArray *result = [[parser parserXMLFromData:(NSData *)newsObject] copy];
         success(result);
-    } failure:^(NSString *errorMess) {
+    } failure:^(NSInteger errorCode,NSString *errorMess) {
         NSLog(@"[FR] Fail to get rss");
         NSLog(@"FRNewsModelTest: fail >> %@", errorMess);
         failure(errorMess);

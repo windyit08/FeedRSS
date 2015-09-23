@@ -43,13 +43,13 @@
 @end
 
 
-@implementation FRITDataSource
-NSMutableArray* listFav;
+
 
 #pragma mark - FRHomeDataSource
 
 @implementation FRITDataSource{
     NSString *IT_NEWS_URL;
+    NSMutableArray* listFav;
 }
 
 
@@ -97,9 +97,18 @@ NSMutableArray* listFav;
         //FRPost *post = [posts objectAtIndex:indexPath.row];
         //cell.nameLabel.text = post.title;
         cell.nameLabel.text = item.title;
+        cell.dateLabel.text = item.pubDate;
         //cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
-        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
-        cell.post = indexPath.row;
+//        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            // retrive image on global queue
+            UIImage * img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.urlImage]]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.thumbnailImageView.image = img;
+            });
+        });
+//        cell.post = indexPath.row;
         if([listFav containsObject:[item guid]]){
             cell.btn.enabled = NO;
         }
@@ -117,7 +126,7 @@ NSMutableArray* listFav;
     FRNewsObject *item = [self.news objectAtIndex:cell.tag];
     if([[FRPostDAO sharedInstance] addFavoritePost:item.guid withTile:item.title withText:item.description withThumb:nil] == YES){
         listFav = [[FRPostDAO sharedInstance] listAllFavorite];
-        //cell.enabled = NO;
+        cell.enabled = NO;
     }
     
 

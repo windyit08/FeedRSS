@@ -80,7 +80,7 @@
 
 - (NSMutableArray*) listAllGuiOfFavorite {
     NSMutableArray* list = [self listAllFavorite];
-    NSMutableArray* ret = [NSMutableArray alloc];
+    NSMutableArray* ret = [[NSMutableArray alloc] init];
     
     for(FRPost* item in list){
 

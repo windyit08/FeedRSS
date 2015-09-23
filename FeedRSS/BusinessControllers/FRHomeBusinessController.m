@@ -8,7 +8,7 @@
 
 #import "FRHomeBusinessController.h"
 #import "HomeCell.h"
-#import "FRNewsModel.h"
+#import "FRNewsServices.h"
 #import "XMLParser.h"
 #import "FRNewsObject.h"
 #import "FRHomeBusinessController.h"
@@ -50,7 +50,7 @@
 }
 
 - (void)loadAllNews:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure {
-    FRNewsModel *newsModel = [[FRNewsModel alloc] init];
+    FRNewsServices *newsModel = [[FRNewsServices alloc] init];
     [newsModel requestNewsList:homeNews success:^(FRNewsObject *newsObject) {
         NSLog(@"[FR] Success to get rss");
         NSLog(@"FRNewsModelTest: sucess here");
@@ -66,7 +66,7 @@
 //            }
 //        }
         success();
-    } failure:^(NSString *errorMess) {
+    } failure:^(NSInteger code,NSString *errorMess) {
         NSLog(@"[FR] Fail to get rss");
         NSLog(@"FRNewsModelTest: fail >> %@", errorMess);
         failure(errorMess);
@@ -89,7 +89,16 @@
             cell = [nib objectAtIndex:0];
         }
         cell.nameLabel.text = newsObj.title;
-        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
+        cell.dateLabel.text = newsObj.pubDate;
+//        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            // retrive image on global queue
+            UIImage * img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:newsObj.urlImage]]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.thumbnailImageView.image = img;
+            });
+        });
         [cell.btn addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
         

@@ -16,5 +16,6 @@
 @property(nonatomic, copy)NSString* link;
 @property(nonatomic, copy)NSString* guid;
 @property(nonatomic, copy)NSString* slash;
+@property(nonatomic, copy)NSString* urlImage;
 
 @end
