@@ -13,6 +13,7 @@
 #import "FRNewsObject.h"
 #import "FRHomeBusinessController.h"
 #import "FRHomeViewController.h"
+#import "FRPostDAO.h"
 
 #define homeNews @"http://vnexpress.net/rss/tin-moi-nhat.rss"
 

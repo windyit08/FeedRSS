@@ -77,6 +77,19 @@
     NSError *error;
     return [[context executeFetchRequest:fetchRequest error:&error] mutableCopy];
 }
+
+- (NSMutableArray*) listAllGuiOfFavorite {
+    NSMutableArray* list = [self listAllFavorite];
+    NSMutableArray* ret = [NSMutableArray alloc];
+    
+    for(FRPost* item in list){
+
+        [ret addObject:item.title];
+    }
+    return ret;
+    
+}
+
 - (void) populateWithDummies {
     NSManagedObjectContext *context = [self managedObjectContext];
     
