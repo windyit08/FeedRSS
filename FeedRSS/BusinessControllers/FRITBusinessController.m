@@ -12,6 +12,7 @@
 #import "FRNewsObject.h"
 #import "FRPostDAO.h"
 #import "FRPost.h"
+#import "Utils.h"
 
 @implementation FRITBusinessController
 
@@ -68,7 +69,7 @@
     [ self.frFetchArticleServices getListNewIt:IT_NEWS_URL success:^(NSMutableArray *listItem) {
         self.news = listItem;
         for(FRNewsObject* item in self.news){
-            item.isFavorite = [FRITDataSource isFavorite:item.guid withList:listFav];
+            item.isFavorite = [Utils isFavorite:item.guid withList:listFav];
            
         }
         success();
@@ -129,14 +130,7 @@
     
 }
 
-+(BOOL) isFavorite:(NSString*) gui withList:(NSMutableArray*) list{
-    for(NSString* ii in list){
-        if([gui isEqualToString: ii]){
-            return YES;
-        }
-    }
-    return NO;
-}
+
 
 - (void)buttonTapped:(id)sender {
     UIButton * cell = sender;
