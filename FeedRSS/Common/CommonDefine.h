@@ -16,5 +16,6 @@
 
 #define BASE_URL @"http://vnexpress.net/"
 #define HOME_NEWS_CONTENT @"rss/tin-moi-nhat.rss"
+#define IT_NEWS_CONTENT @"rss/so-hoa.rss"
 
 #endif
