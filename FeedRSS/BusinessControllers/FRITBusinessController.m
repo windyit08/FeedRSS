@@ -10,6 +10,8 @@
 #import "HomeCell.h"
 #import "FRFetchArticleServices.h"
 #import "FRNewsObject.h"
+#import "FRPostDAO.h"
+#import "FRPost.h"
 
 @implementation FRITBusinessController
 
@@ -41,12 +43,16 @@
 @end
 
 @implementation FRITDataSource
+NSMutableArray* listFav;
 
 - (NSArray *)newsList {
     return self.news;
 }
 
 - (void)loadAllNews:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure {
+
+
+    listFav = [[FRPostDAO sharedInstance] listAllFavorite];
 
     self.frFetchArticleServices = [[FRFetchArticleServices alloc]init];
     NSString *url = @"http://vnexpress.net/rss/so-hoa.rss";
@@ -86,7 +92,13 @@
         cell.nameLabel.text = item.title;
         //cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
         cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
+        cell.post = indexPath.row;
+        if([listFav containsObject:[item guid]]){
+            cell.btn.enabled = NO;
+        }
+
          [cell.btn addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        cell.btn.tag = indexPath.row;
         return cell;
         
     }
@@ -94,12 +106,21 @@
 }
 
 - (void)buttonTapped:(id)sender {
+    UIButton * cell = sender;
+    FRNewsObject *item = [self.news objectAtIndex:cell.tag];
+    if([[FRPostDAO sharedInstance] addFavoritePost:item.guid withTile:item.title withText:item.description withThumb:nil] == YES){
+        listFav = [[FRPostDAO sharedInstance] listAllFavorite];
+        cell.enabled = NO;
+    }
+    
+
+    
     NSLog(@"buttonTapped");
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //return self.news.count;
-    return 100;
+    return self.news.count;
+    //return 100;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
