@@ -41,9 +41,9 @@
 {
     [super viewDidAppear:animated];
     __weak __typeof(self)weakSelf = self;
-    [homeBusinessController loadAllNews:^(id data){
+    [homeBusinessController loadAllNews:^(){
         [weakSelf.table reloadData];
-    } failure:^(NSInteger errorCode, NSString *errorMsg) {
+    } failure:^(NSString *errorMessage) {
         //Alert
     }];
 }

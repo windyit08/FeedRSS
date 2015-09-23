@@ -63,13 +63,6 @@
        [self performSegueWithIdentifier:@"ViewFavoriteAction" sender:self];
 }
 
-
-
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 78;
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
     if ([segue.identifier isEqualToString:@"ViewFavoriteAction"]) {
@@ -81,7 +74,25 @@
         destViewController.Url = [favBusinessController getSelectedUrl:indexPath.row];
         
     }
+}
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat h = [favBusinessController tableView:tableView heightForCellAtIndexPath:indexPath];
+    NSLog(@"height = %f", h);
+    //return h;
+    return 78;
+}
+
+//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if ([self isLandscapeOrientation]) {
+//        return 100.0f;
+//    } else {
+//        return 78.0f;
+//    }
+//}
+
+- (BOOL)isLandscapeOrientation {
+    return UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation);
 }
 
 @end

@@ -17,6 +17,4 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-    #import "CommonUtil.h"
-    #import "CommonDefine.h"
 #endif

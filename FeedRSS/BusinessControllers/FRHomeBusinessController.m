@@ -8,17 +8,19 @@
 
 #import "FRHomeBusinessController.h"
 #import "HomeCell.h"
-#import "FRNewsServices.h"
+#import "FRNewsModel.h"
 #import "XMLParser.h"
 #import "FRNewsObject.h"
 #import "FRHomeBusinessController.h"
 #import "FRHomeViewController.h"
-#import "FRArticleTableViewCell.h"
+#import "FRPostDAO.h"
+
+#define homeNews @"http://vnexpress.net/rss/tin-moi-nhat.rss"
 
 #pragma mark - FRHomeBusinessController
 
-
-@implementation FRHomeBusinessController{}
+@implementation FRHomeBusinessController{
+}
 
 -(instancetype)init
 {
@@ -31,7 +33,7 @@
     return self;
 }
 
--(void)loadAllNews:(SuccessBlock)success failure:(FailureBlock)failure {
+-(void)loadAllNews:(void (^)(void))success failure:(void (^)(NSString *errorMessage))failure {
     
     [self.dataSource loadAllNews:success failure:failure];
     
@@ -41,27 +43,33 @@
 
 #pragma mark - FRHomeDataSource
 
-@implementation FRHomeDataSource{
-    NSString *homeNews;
-}
+@implementation FRHomeDataSource
 
 - (NSArray *)newsList {
     return self.news;
 }
 
-- (void)loadAllNews:(SuccessBlock)success failure:(FailureBlock)failure {
-    homeNews = [NSString stringWithFormat:@"%@%@", BASE_URL,HOME_NEWS_CONTENT];
-    FRNewsServices *newsServices = [[FRNewsServices alloc] init];
-    [newsServices requestNewsList:homeNews success:^(id data) {
+- (void)loadAllNews:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure {
+    FRNewsModel *newsModel = [[FRNewsModel alloc] init];
+    [newsModel requestNewsList:homeNews success:^(FRNewsObject *newsObject) {
         NSLog(@"[FR] Success to get rss");
         NSLog(@"FRNewsModelTest: sucess here");
         XMLParser *parser = [[XMLParser alloc] init];
-        self.news = [[parser parserXMLFromData:(NSData *)data] copy];
-        success(self.news);
-    } failure:^(NSInteger errorCode, NSString *errorMsg)  {
+        self.news = [[parser parserXMLFromData:(NSData *)newsObject] copy];
+//        for(int i = 0; i < newsArray.count; i++){
+//            FRNewsObject *frNew = [newsArray objectAtIndex:i];
+//            if(frNew != nil){
+//                NSLog(@"---------------News %i---------------", i);
+//                NSLog(@"testFethTopNews: (title %d) %@", i, frNew.title);
+//                NSLog(@"testFetchTopNews: (pubDate %d) %@", i, frNew.pubDate);
+//                NSLog(@"testFetchTopNews: (pubDate %d) %@", i, frNew.description);
+//            }
+//        }
+        success();
+    } failure:^(NSString *errorMess) {
         NSLog(@"[FR] Fail to get rss");
-        NSLog(@"FRNewsModelTest: fail >> %@", errorMsg);
-        failure(errorCode, errorMsg);
+        NSLog(@"FRNewsModelTest: fail >> %@", errorMess);
+        failure(errorMess);
     }];
 }
 
@@ -81,16 +89,12 @@
             cell = [nib objectAtIndex:0];
         }
         cell.nameLabel.text = newsObj.title;
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            UIImage * img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:newsObj.urlImage]]];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                FRArticleTableViewCell * cell = (FRArticleTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-                cell.thumbnailImageView.image = img;
-            });
-        });
+        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
         [cell.btn addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
+        
     }
+    
 }
 
 - (void)buttonTapped:(id)sender {

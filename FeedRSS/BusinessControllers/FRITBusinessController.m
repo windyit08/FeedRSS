@@ -10,7 +10,8 @@
 #import "HomeCell.h"
 #import "FRFetchArticleServices.h"
 #import "FRNewsObject.h"
-#import "FRArticleTableViewCell.h"
+#import "FRPostDAO.h"
+#import "FRPost.h"
 
 @implementation FRITBusinessController
 
@@ -41,17 +42,25 @@
 
 @end
 
+
+@implementation FRITDataSource
+NSMutableArray* listFav;
+
 #pragma mark - FRHomeDataSource
 
 @implementation FRITDataSource{
     NSString *IT_NEWS_URL;
 }
 
+
 - (NSArray *)newsList {
     return self.news;
 }
 
 - (void)loadAllNews:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure {
+
+    listFav = [[FRPostDAO sharedInstance] listAllGuiOfFavorite];
+
     IT_NEWS_URL =[NSString stringWithFormat:@"%@%@", BASE_URL,IT_NEWS_CONTENT];
     self.frFetchArticleServices = [[FRFetchArticleServices alloc]init];
     [ self.frFetchArticleServices getListNewIt:IT_NEWS_URL success:^(NSMutableArray *listItem) {
@@ -65,6 +74,10 @@
 #pragma mark - UITableViewDataSource methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    
+    
     {
         HomeCell * cell = nil;
         
@@ -81,18 +94,18 @@
             
         }
         FRNewsObject *item = [self.news objectAtIndex:indexPath.row];
+        //FRPost *post = [posts objectAtIndex:indexPath.row];
+        //cell.nameLabel.text = post.title;
         cell.nameLabel.text = item.title;
-        cell.dateLabel.text = item.pubDate;
         //cell.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
-//        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            UIImage * img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.urlImage]]];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                FRArticleTableViewCell * cell = (FRArticleTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-                cell.thumbnailImageView.image = img;
-            });
-        });
+        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
+        cell.post = indexPath.row;
+        if([listFav containsObject:[item guid]]){
+            cell.btn.enabled = NO;
+        }
+
          [cell.btn addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        cell.btn.tag = indexPath.row;
         return cell;
         
     }
@@ -100,12 +113,21 @@
 }
 
 - (void)buttonTapped:(id)sender {
+    UIButton * cell = sender;
+    FRNewsObject *item = [self.news objectAtIndex:cell.tag];
+    if([[FRPostDAO sharedInstance] addFavoritePost:item.guid withTile:item.title withText:item.description withThumb:nil] == YES){
+        listFav = [[FRPostDAO sharedInstance] listAllFavorite];
+        //cell.enabled = NO;
+    }
+    
+
+    
     NSLog(@"buttonTapped");
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.news.count;
-//    return 100;
+    //return 100;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

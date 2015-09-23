@@ -18,6 +18,7 @@
 
 - (void)loadAllFavorites:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure;
 - (NSString *)getSelectedUrl:(NSInteger)row;
+- (CGFloat)tableView:(UITableView *)tableView heightForCellAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
@@ -29,5 +30,6 @@
 - (NSArray *)favoritesList;
 - (void)loadAllFavorites:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure;
 - (FRPost *)getSelectedArticle:(NSInteger)row;
+- (CGFloat)tableView:(UITableView *)tableView heightForCellAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
