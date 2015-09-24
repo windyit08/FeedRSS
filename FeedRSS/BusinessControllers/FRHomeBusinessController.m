@@ -14,6 +14,8 @@
 #import "FRHomeBusinessController.h"
 #import "FRHomeViewController.h"
 #import "FRPostDAO.h"
+#import "Utils.h"
+
 
 #define homeNews @"http://vnexpress.net/rss/tin-moi-nhat.rss"
 
@@ -43,7 +45,10 @@
 
 #pragma mark - FRHomeDataSource
 
-@implementation FRHomeDataSource
+@implementation FRHomeDataSource{
+    NSMutableArray* listFav;
+}
+
 
 - (NSArray *)newsList {
     return self.news;
@@ -51,11 +56,17 @@
 
 - (void)loadAllNews:(void(^)(void))success failure:(void (^)(NSString *errorMessage))failure {
     FRNewsServices *newsModel = [[FRNewsServices alloc] init];
+    listFav = [[FRPostDAO sharedInstance] listAllGuiOfFavorite];
     [newsModel requestNewsList:homeNews success:^(FRNewsObject *newsObject) {
         NSLog(@"[FR] Success to get rss");
         NSLog(@"FRNewsModelTest: sucess here");
         XMLParser *parser = [[XMLParser alloc] init];
         self.news = [[parser parserXMLFromData:(NSData *)newsObject] copy];
+        for(FRNewsObject* item in self.news){
+            item.isFavorite = [Utils isFavorite:item.guid withList:listFav];
+            
+        }
+
 //        for(int i = 0; i < newsArray.count; i++){
 //            FRNewsObject *frNew = [newsArray objectAtIndex:i];
 //            if(frNew != nil){
@@ -99,6 +110,15 @@
                 cell.thumbnailImageView.image = img;
             });
         });
+        if (newsObj.isFavorite) {
+            cell.btn.enabled = NO;
+        }else{
+            cell.btn.enabled = YES;
+        }
+        
+        
+        cell.btn.tag = indexPath.row;
+
         [cell.btn addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
         
@@ -107,6 +127,15 @@
 }
 
 - (void)buttonTapped:(id)sender {
+    UIButton * cell = sender;
+    FRNewsObject *item = [self.news objectAtIndex:cell.tag];
+    NSLog(@"buttonTapped=>listFav(1)=%lu",[listFav count]);
+    if([[FRPostDAO sharedInstance] addFavoritePost:item.guid withTile:item.title withText:item.description withThumb:nil] == YES){
+        listFav = [[FRPostDAO sharedInstance] listAllFavorite];
+        NSLog(@"buttonTapped=>listFav(2)=%lu",[listFav count]);
+        cell.enabled = NO;
+    }
+
     NSLog(@"buttonTapped");
 }
 
@@ -116,13 +145,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
-}
-
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete object from database
-           }
 }
 
 @end
