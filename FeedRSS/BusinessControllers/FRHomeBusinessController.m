@@ -130,7 +130,7 @@
     UIButton * cell = sender;
     FRNewsObject *item = [self.news objectAtIndex:cell.tag];
     NSLog(@"buttonTapped=>listFav(1)=%lu",[listFav count]);
-    if([[FRPostDAO sharedInstance] addFavoritePost:item.guid withTile:item.title withText:item.description withThumb:nil] == YES){
+    if([[FRPostDAO sharedInstance] addFavoritePost:item] == YES){
         listFav = [[FRPostDAO sharedInstance] listAllFavorite];
         NSLog(@"buttonTapped=>listFav(2)=%lu",[listFav count]);
         cell.enabled = NO;

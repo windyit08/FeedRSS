@@ -8,6 +8,7 @@
 
 #import "FRPostDAO.h"
 #import "FRPost.h"
+#import "FRNewsObject.h"
 
 @implementation FRPostDAO: NSObject
 
@@ -30,11 +31,25 @@
     return context;
 }
 
-- (BOOL) addFavoritePost:(NSDictionary *)post {
+- (BOOL) addFavoritePost:(FRNewsObject *) news {
+    NSLog(@"Run %s", __PRETTY_FUNCTION__);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setLocale:[NSLocale currentLocale]];
+    [dateFormat setDateFormat:@"EEE, d MMM yyyy HH:mm:ss ZZZ"];
+//    NSLog(@"%@", [dateFormat stringFromDate:[NSDate date]]);
+    NSLog(@"Add new FRNewsObject with:");
+    NSLog(@"Title: %@", news.title);
+    NSLog(@"Link: %@", news.guid);
+    NSLog(@"Text: %@", news.description);
+    NSLog(@"Img: %@", news.urlImage);
+    NSLog(@"Date: %@", [dateFormat dateFromString:news.pubDate]);
     NSManagedObjectContext *context = [self managedObjectContext];
-    NSManagedObject *postRss = [NSEntityDescription insertNewObjectForEntityForName:@"FRPost" inManagedObjectContext:context];
-    [postRss setValuesForKeysWithDictionary:post];
-    [postRss setValue:[NSDate date] forKey:@"date"];
+    NSManagedObject *post = [NSEntityDescription insertNewObjectForEntityForName:@"FRPost" inManagedObjectContext:context];
+    [post setValue:news.guid forKey:@"guid"];
+    [post setValue:news.title forKey:@"title"];
+    [post setValue:news.description forKey:@"text"];
+    [post setValue:news.urlImage forKey:@"thumb"];
+    [post setValue:[dateFormat dateFromString:news.pubDate] forKey:@"date"];
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Can't Insert! %@ %@", error, [error localizedDescription]);
@@ -43,13 +58,24 @@
     return YES;
 }
 
-- (BOOL) addFavoritePost:(NSString *)guid withTile:(NSString *)title withText:(NSString *)text withThumb:(NSString *)thumb {
+- (BOOL) addFavoritePost:(NSString *)guid withTile:(NSString *)title withText:(NSString *)text withThumb:(NSString *)thumb withDate:(NSString *)date {
+    NSLog(@"Run %s", __PRETTY_FUNCTION__);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setLocale:[NSLocale currentLocale]];
+    [dateFormat setDateFormat:@"EEE, d MMM yyyy HH:mm:ss ZZZ"];
+    NSLog(@"Add new FRNewsObject with:");
+    NSLog(@"Title: %@", title);
+    NSLog(@"Link: %@", guid);
+    NSLog(@"Text: %@", text);
+    NSLog(@"Img: %@", thumb);
+    NSLog(@"Date: %@", date);
     NSManagedObjectContext *context = [self managedObjectContext];
     NSManagedObject *post = [NSEntityDescription insertNewObjectForEntityForName:@"FRPost" inManagedObjectContext:context];
     [post setValue:guid forKey:@"guid"];
     [post setValue:title forKey:@"title"];
     [post setValue:text forKey:@"text"];
-    [post setValue:[NSDate date] forKey:@"date"];
+    [post setValue:thumb forKey:@"thumb"];
+    [post setValue:[dateFormat dateFromString:date] forKey:@"date"];
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Can't Insert! %@ %@", error, [error localizedDescription]);

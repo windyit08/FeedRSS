@@ -58,11 +58,6 @@
     self.postDAO = [FRPostDAO sharedInstance];
     self.favorites = [self.postDAO listAllFavorite];
     
-    if(self.favorites.count == 0) {
-        [self.postDAO populateWithDummies];
-        self.favorites = [self.postDAO listAllFavorite];
-    }
-    
     success();
 }
 
