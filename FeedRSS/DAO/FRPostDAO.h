@@ -14,6 +14,7 @@
 - (BOOL) addFavoritePost:(FRNewsObject *) news;
 - (BOOL) addFavoritePost:(NSString *) guid withTile:(NSString *) title withText:(NSString *) text withThumb:(NSString *) thumb withDate:(NSString *)date;
 - (BOOL) removeFavorite : (FRPost*) post;
+- (BOOL) removeFavoriteNews : (FRNewsObject*) news;
 - (NSMutableArray*) listAllFavorite;
 - (NSMutableArray*) listAllGuiOfFavorite;
 - (void) populateWithDummies;

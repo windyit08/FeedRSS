@@ -95,6 +95,27 @@
     return YES;
 }
 
+- (BOOL) removeFavoriteNews:(FRNewsObject *)news {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"FRPost" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"guid == %@", news.guid];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray* results = [context executeFetchRequest:fetchRequest error:&error];
+    if(results.count == 1) {
+        [context deleteObject:[results objectAtIndex:0]];
+        if (![context save:&error]) {
+            NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+            return NO;
+        }
+    }
+    return YES;
+}
+
 - (NSMutableArray*) listAllFavorite {
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];

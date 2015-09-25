@@ -88,6 +88,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     {
+        
         FRNewsObject *newsObj = [self.news objectAtIndex:indexPath.row];
         if(newsObj == nil){
             return nil;
@@ -100,7 +101,16 @@
             cell = [nib objectAtIndex:0];
         }
         cell.nameLabel.text = newsObj.title;
-        cell.dateLabel.text = newsObj.pubDate;
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setLocale:[NSLocale currentLocale]];
+        [dateFormat setDateFormat:@"EEE, d MMM yyyy HH:mm:ss ZZZ"];
+        
+        NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
+        [dateFormat2 setLocale:[NSLocale currentLocale]];
+        [dateFormat2 setDateFormat:@"HH:mm dd/MM/yyyy"];
+        
+        cell.dateLabel.text = [dateFormat2 stringFromDate:[dateFormat dateFromString:newsObj.pubDate]];
 //        cell.thumbnailImageView.image = [UIImage imageNamed:@"husky.jpg"];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             // retrive image on global queue
@@ -111,9 +121,9 @@
             });
         });
         if (newsObj.isFavorite) {
-            cell.btn.enabled = NO;
+            [cell.btn setTitle:@"Remove" forState:UIControlStateNormal];
         }else{
-            cell.btn.enabled = YES;
+            [cell.btn setTitle:@"Add" forState:UIControlStateNormal];
         }
         
         
@@ -130,12 +140,20 @@
     UIButton * cell = sender;
     FRNewsObject *item = [self.news objectAtIndex:cell.tag];
     NSLog(@"buttonTapped=>listFav(1)=%lu",[listFav count]);
-    if([[FRPostDAO sharedInstance] addFavoritePost:item] == YES){
-        listFav = [[FRPostDAO sharedInstance] listAllFavorite];
-        NSLog(@"buttonTapped=>listFav(2)=%lu",[listFav count]);
-        cell.enabled = NO;
+    if([cell.titleLabel.text isEqualToString:@"Add"]) {
+        if([[FRPostDAO sharedInstance] addFavoritePost:item] == YES){
+            listFav = [[FRPostDAO sharedInstance] listAllFavorite];
+            NSLog(@"buttonTapped=>listFav(2)=%lu",[listFav count]);
+//            cell.enabled = NO;
+            [cell setTitle:@"Remove" forState:UIControlStateNormal];
+        }
+    } else {
+        if([[FRPostDAO sharedInstance] removeFavoriteNews:item] == YES){
+            listFav = [[FRPostDAO sharedInstance] listAllFavorite];
+            NSLog(@"buttonTapped=>listFav(2)=%lu",[listFav count]);
+            [cell setTitle:@"Add" forState:UIControlStateNormal];
+        }
     }
-
     NSLog(@"buttonTapped");
 }
 
